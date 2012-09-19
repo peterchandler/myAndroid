@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_gravity="center_horizontal"
+  android:orientation="horizontal">
+  <kankan.wheel.widget.WheelView
+    android:id="@+id/day"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:minWidth="70dp"/>
+  <kankan.wheel.widget.WheelView
+    android:id="@+id/month"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:minWidth="140dp"/>
+  <kankan.wheel.widget.WheelView
+    android:id="@+id/year"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:minWidth="70dp"/>
+</LinearLayout>

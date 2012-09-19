@@ -1,0 +1,10 @@
+<resources>
+  <string name="copyright">Copyright \u00A9 2012</string>
+  <string name="jemstone">Jemstone Consulting Ltd</string>
+  <string name="link_to_google_play">Rate on Google Play</string>
+  <string name="titleApplication">myLib</string>
+  <string name="titleVersionString">Version %s</string>
+  <string name="titleSelectDate">%1$tA, %1$tB %1$te %1$tY</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Cancel</string>
+</resources>
