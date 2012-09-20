@@ -12,8 +12,4 @@ public abstract class EntityManager implements Printable {
   public static EntityManager getInstance() {
     return manager;
   }
-
-  public interface Factory {
-    public EntityManager getInstance();
-  }
 }
