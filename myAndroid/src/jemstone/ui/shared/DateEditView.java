@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import jemstone.mylib.R;
+import jemstone.myandroid.R;
 import jemstone.util.DateUtil;
 import jemstone.util.Formatter;
 import jemstone.util.RepeatFormat;

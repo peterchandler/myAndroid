@@ -1,6 +1,6 @@
 package jemstone.ui.shared;
 
-import jemstone.mylib.R;
+import jemstone.myandroid.R;
 import android.view.View;
 import android.widget.ListView;
 
