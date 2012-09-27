@@ -4,6 +4,10 @@
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
   android:orientation="vertical">
+  <jemstone.mycashflow.ui.shared.HeaderView
+    android:id="@+id/header_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"/>
   <jemstone.mycashflow.ui.shared.DateEditView
     android:id="@+id/date_edit"
     android:layout_width="wrap_content"

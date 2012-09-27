@@ -1,3 +1,17 @@
 <resources>
+  <item name="count" type="id"/>
+  <item name="cut" type="id"/>
+  <item name="copy" type="id"/>
+  <item name="paste" type="id"/>
+  <item name="add" type="id"/>
   <item name="delete" type="id"/>
+  <item name="move" type="id"/>
+  <item name="accept" type="id"/>
+  <item name="cancel" type="id"/>
+  <item name="ok" type="id"/>
+  <item name="viewpager" type="id"/>
+  <item name="name" type="id"/>
+  <item name="description" type="id"/>
+  <item name="amount" type="id"/>
+  <item name="selectCheckBox" type="id"/>
 </resources>

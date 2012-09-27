@@ -19,6 +19,7 @@
 
 package kankan.wheel.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -31,6 +32,7 @@ import android.widget.Scroller;
 /**
  * Scroller class handles scrolling events and updates the
  */
+@SuppressLint("HandlerLeak")
 public class WheelScroller {
   /**
    * Scrolling listener interface

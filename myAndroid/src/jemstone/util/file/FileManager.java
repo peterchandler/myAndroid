@@ -8,36 +8,79 @@ import java.io.Reader;
 import java.io.Writer;
 
 import jemstone.model.EntityManager;
-import jemstone.util.DaoException;
 import jemstone.util.Timer;
 import jemstone.util.log.Logger;
+import android.content.Context;
 
+@SuppressWarnings("rawtypes")
 public class FileManager {
   protected final Logger log = Logger.getLogger(getClass());
+  
+  private static Factory factory;
 
-  private File logPath;
-  private String logFile;
+  /** Path where files will be read and written to */
+  private File path;
 
-  public FileManager(File logPath, String logFile) {
-    this.logPath = logPath;
-    this.logFile = logFile;
+  /** Name of file to be read/written */
+  private String fileName = "myandroid.xml";
+  
+  /** The name of the DAO that will read the file */
+  private LoadFileDao loadDao;
+
+  /** The name of the DAO that will write the file */
+  private SaveFileDao saveDao;
+
+  public FileManager() {
   }
 
-  public synchronized void load(LoadFileDao dao) throws DaoException, IOException {
+  public File getPath() {
+    return path;
+  }
+
+  public void setPath(File path) {
+    this.path = path;
+  }
+
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public LoadFileDao getLoadDao() {
+    return loadDao;
+  }
+
+  public void setLoadDao(LoadFileDao loadDao) {
+    this.loadDao = loadDao;
+  }
+
+  public SaveFileDao getSaveDao() {
+    return saveDao;
+  }
+
+  public void setSaveDao(SaveFileDao saveDao) {
+    this.saveDao = saveDao;
+  }
+
+  public synchronized void load() throws DaoException, IOException {
     Timer timer = new Timer();
     
     // Load the file
     File file = getFile();
     Reader reader = new FileReader(file);
     if (reader != null) {
-      dao.load(reader);
+      loadDao.load(reader);
       reader.close();
     
       log.info("load finished in %s: %s", timer, file);
     }
   }
 
-  public synchronized void save(EntityManager manager, SaveFileDao dao) throws DaoException, IOException {
+  @SuppressWarnings("unchecked")
+  public synchronized void save(EntityManager manager) throws DaoException, IOException {
     log.info("Save called");
     
     // Save to file
@@ -50,7 +93,7 @@ public class FileManager {
     
       Writer writer = new FileWriter(newFile);
       if (writer != null) {
-        dao.save(manager, writer);
+        saveDao.save(manager, writer);
         writer.close();
     
         // Rename the new file to the one we want
@@ -73,7 +116,8 @@ public class FileManager {
   }
 
   protected File getFile() {
-    return new File(logPath, logFile);
+    File file = new File(getPath(), fileName);
+    return file;
   }
 
   protected void createBackup(File file) throws IOException {
@@ -91,5 +135,25 @@ public class FileManager {
         throw new IOException("Cannot rename file [" + file.getAbsolutePath() + "] to [" + newFile.getAbsolutePath() + "]");
       }
     }
+  }
+
+  /**
+   * Use a factory to create instances of the FileManager for different 
+   * applications and environments.
+   */
+  public interface Factory {
+    public FileManager getInstance(Context context);
+  }
+
+  public static Factory getFactory() {
+    return factory;
+  }
+
+  public static void setFactory(Factory factory) {
+    FileManager.factory = factory;
+  }
+  
+  public static FileManager getInstance(Context context) {
+    return getFactory().getInstance(context);
   }
 }

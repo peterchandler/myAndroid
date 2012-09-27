@@ -2,9 +2,56 @@
   <string name="copyright">Copyright \u00A9 2012</string>
   <string name="jemstone">Jemstone Consulting Ltd</string>
   <string name="link_to_google_play">Rate on Google Play</string>
-  <string name="titleApplication">myLib</string>
+  <string name="titleApplication">myAndroid</string>
   <string name="titleVersionString">Version %s</string>
+  <string name="titleCreate">Create %s</string>
+  <string name="titleEdit">Edit %s</string>
+  <string name="titleRepeatEdit">Edit Repeat</string>
   <string name="titleSelectDate">%1$tA, %1$tB %1$te %1$tY</string>
+  <string name="repeatNext">Next occurs %1$tA, %1$tB %1$te %1$tY</string>
+  <string name="dateFormatLong">%1$tA, %1$tB %1$te %1$tY</string>
+  <string name="dateRange">Starts %1$tB %1$te %1$tY, finishes %2$tB %2$te %2$tY</string>
   <string name="ok">OK</string>
   <string name="cancel">Cancel</string>
+  <string name="save">Save</string>
+  <string name="accept">Accept</string>
+  <string name="add">Add</string>
+  <string name="delete">Delete</string>
+  <string name="edit">Edit</string>
+  <string name="cut">Cut</string>
+  <string name="copy">Copy</string>
+  <string name="paste">Paste</string>
+  <string name="undo">Undo</string>
+  <string name="redo">Redo</string>
+  <string name="home">Home</string>
+  <string name="done">Done</string>
+  <string name="repeat">Repeat</string>
+  <string name="repeatEvery">Every</string>
+  <string name="name">Name</string>
+  <string name="description">Description</string>
+  <string name="date">Date</string>
+  <string name="amount">Amount</string>
+  <string name="configure">Configure</string>
+  
+  <string-array name="repeat_frequency">
+    <item>Once</item>
+    <item>Days</item>
+    <item>Weeks</item>
+    <item>Months</item>
+    <item>Years</item>
+  </string-array>
+  <string-array name="repeat_monthly">
+    <item>Day of Month</item>
+    <item>Day of Week</item>
+  </string-array>
+  <string-array name="day_of_week">
+    <item>Day</item>
+    <item>Monday</item>
+    <item>Tuesday</item>
+    <item>Wednesday</item>
+    <item>Thursday</item>
+    <item>Friday</item>
+    <item>Saturday</item>
+    <item>Sunday</item>
+  </string-array>
 </resources>

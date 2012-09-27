@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="panelBackground">#000000</color>
+  <color name="panelBorder">#464747</color>
+  <color name="grayBackground">#232323</color>
+  <color name="grayText">#8D9293</color>
+  <color name="blueText">#208DB2</color>
+  <color name="blueLine">#33B5E5</color>
+  <color name="headerStartColor">#5C5C5C</color>
+  <color name="headerEndColor">#00000000</color>
+  <color name="headerGrayStartColor">#5C5C5C</color>
+  <color name="headerGrayEndColor">#232323</color>
+  <color name="listGroupColor">#333333</color>
+</resources>

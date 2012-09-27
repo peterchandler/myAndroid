@@ -4,6 +4,6 @@ import java.io.Writer;
 
 import jemstone.model.EntityManager;
 
-public interface SaveFileDao {
-  public void save(EntityManager manager, Writer writer);
+public interface SaveFileDao<T extends EntityManager> {
+  public void save(T manager, Writer writer) throws DaoException;
 }

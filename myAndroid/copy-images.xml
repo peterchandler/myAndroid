@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Copy Images" basedir="." default="copy-images">
+	<target name="copy-images" description="Copy images">
+
+    <property name="images.src.dir" value="${user.home}/Downloads/android/Android_Design_Icons_20120229/All_Icons" />
+    <property name="images.src.dark" value="${images.src.dir}/holo_dark" />
+    <property name="images.src.light" value="${images.src.dir}/holo_light" />
+    
+    <property name="images.target.dir" value="${user.home}/temp/images" />
+    <property name="images.target.dark" value="${images.target.dir}/holo_dark" />
+    <property name="images.target.light" value="${images.target.dir}/holo_light" />
+    
+    <delete dir="${images.target.dir}" />
+    <mkdir dir="${images.target.dir}" />
+    
+    <property name="mycashflow.res.dir" value="C:\Users\Peter\Documents\GitHub\jemstone\myAndroid\res" />
+    
+    <copy todir="${mycashflow.res.dir}">
+      <fileset dir="${images.src.dir}">
+        <include name="**/1-navigation-*.*" />
+        <include name="**/4-collections-new-label.*" />
+        <include name="**/5-content-discard.*" />
+        <include name="**/5-content-new.*" />
+        <include name="**/5-content-copy.*" />
+        <include name="**/5-content-cut.*" />
+        <include name="**/5-content-paste.*"/>
+        <include name="**/5-content-undo.*" />
+      </fileset>
+      <chainedmapper>
+        <filtermapper>
+          <replacestring from="-" to="_" />
+        </filtermapper>
+        <regexpmapper from="(.*)/(.*)/[0-9]_(.*).png" to="drawable-\2/\3_\1.png"
+          handledirsep="yes" />
+      </chainedmapper>
+    </copy>
+    
+    <property name="android.res.dir" value="C:\Program Files\Android\android-sdk\platforms\android-16\data\res" />
+    <copy todir="${mycashflow.res.dir}">
+      <fileset dir="${android.res.dir}">
+        <include name="**/ic_ab_*.png" />
+      </fileset>
+    </copy>
+  </target>
+</project>
