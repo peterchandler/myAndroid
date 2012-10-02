@@ -17,9 +17,12 @@ public class FileManager {
   protected final Logger log = Logger.getLogger(getClass());
   
   private static Factory factory;
+  
+  /** Listen for events */
+  private Listener listener;
 
   /** Path where files will be read and written to */
-  private File path;
+  private String filePath;
 
   /** Name of file to be read/written */
   private String fileName = "myandroid.xml";
@@ -29,16 +32,19 @@ public class FileManager {
 
   /** The name of the DAO that will write the file */
   private SaveFileDao saveDao;
+  
+  /** Used by tests to simulate an exception being thrown during {@link #load()} or {@link #save(EntityManager)} */
+  private boolean throwTestException;
 
   public FileManager() {
   }
 
-  public File getPath() {
-    return path;
+  public String getFilePath() {
+    return filePath;
   }
 
-  public void setPath(File path) {
-    this.path = path;
+  public void setFilePath(String path) {
+    this.filePath = path;
   }
 
   public String getFileName() {
@@ -65,7 +71,28 @@ public class FileManager {
     this.saveDao = saveDao;
   }
 
+  public Listener getListener() {
+    return listener;
+  }
+
+  public void setListener(Listener listener) {
+    this.listener = listener;
+  }
+
+  protected boolean isThrowTestException() {
+    return throwTestException;
+  }
+
+  protected void setThrowTestException(boolean throwTestException) {
+    this.throwTestException = throwTestException;
+  }
+
   public synchronized void load() throws DaoException, IOException {
+    // Notify listener
+    if (listener != null) {
+      listener.onPreLoad();
+    }
+
     Timer timer = new Timer();
     
     // Load the file
@@ -77,11 +104,21 @@ public class FileManager {
     
       log.info("load finished in %s: %s", timer, file);
     }
+    
+    // Notify listener
+    if (listener != null) {
+      listener.onPostLoad();
+    }
   }
 
   @SuppressWarnings("unchecked")
   public synchronized void save(EntityManager manager) throws DaoException, IOException {
     log.info("Save called");
+    
+    // Notify listener
+    if (listener != null) {
+      listener.onPreSave();
+    }
     
     // Save to file
     File file = getFile();
@@ -106,17 +143,14 @@ public class FileManager {
       throw new DaoException(e, "Error writing external file: %s", file);
     }
     
-    // Clear save flag
-    setSavedFlag(manager);
-  }
-
-  protected void setSavedFlag(EntityManager manager) {
-    synchronized (manager) {
+    // Notify listener
+    if (listener != null) {
+      listener.onPostSave();
     }
   }
 
   protected File getFile() {
-    File file = new File(getPath(), fileName);
+    File file = new File(filePath, fileName);
     return file;
   }
 
@@ -135,6 +169,19 @@ public class FileManager {
         throw new IOException("Cannot rename file [" + file.getAbsolutePath() + "] to [" + newFile.getAbsolutePath() + "]");
       }
     }
+  }
+  
+  /**
+   * Events fired by the FileManager
+   */
+  public interface Listener {
+    public void onPreLoad();
+
+    public void onPostLoad();
+
+    public void onPreSave();
+    
+    public void onPostSave();
   }
 
   /**

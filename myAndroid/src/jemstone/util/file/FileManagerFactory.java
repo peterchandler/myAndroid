@@ -1,24 +1,36 @@
 package jemstone.util.file;
 
-import java.io.File;
-
 import jemstone.util.MyRuntimeException;
 import android.content.Context;
 
 public class FileManagerFactory implements FileManager.Factory {
+  /** Path to read/write from */
+  private String filePath = "c:\\temp";
+
   /** Name of file to be read/written */
   private String fileName = "myandroid.xml";
 
-  private Class<LoadFileDao> loadDaoClass;
-  private Class<SaveFileDao<?>> saveDaoClass;
+  private Class<? extends LoadFileDao> loadDaoClass;
+  private Class<? extends SaveFileDao<?>> saveDaoClass;
+  private Class<? extends FileManager.Listener> listenerClass;
   
   public FileManagerFactory() {
   }
   
-  public FileManagerFactory(Class<LoadFileDao> loadDaoClass, 
-                            Class<SaveFileDao<?>> saveDaoClass) {
+  public FileManagerFactory(Class<? extends LoadFileDao> loadDaoClass, 
+                            Class<? extends SaveFileDao<?>> saveDaoClass,
+                            Class<? extends FileManager.Listener> listenerClass) {
     this.loadDaoClass = loadDaoClass;
     this.saveDaoClass = saveDaoClass;
+    this.listenerClass = listenerClass;
+  }
+
+  public String getFilePath() {
+    return filePath;
+  }
+
+  public void setFilePath(String filePath) {
+    this.filePath = filePath;
   }
 
   public String getFileName() {
@@ -59,18 +71,34 @@ public class FileManagerFactory implements FileManager.Factory {
     }
   }
 
+  protected void setListener(FileManager manager) {
+    // Create a DAO object for the new manager
+    try {
+      if (listenerClass != null) {
+        manager.setListener(listenerClass.newInstance());
+      }
+    } catch (Exception e) {
+      throw new MyRuntimeException(e, "Cannot create Listener class");
+    }
+  }
+
   @Override
   public FileManager getInstance(Context context) {
-    FileManager manager = new FileManager();
+    FileManager manager = createInstance(context);
 
     // Set the path and filename to be read/written from
-    manager.setPath(new File("c:/temp"));
+    manager.setFilePath(filePath);
     manager.setFileName(fileName);
     
-    // Set DAO objects
+    // Set DAO objects and listener
     setLoadDao(manager);
     setSaveDao(manager);
+    setListener(manager);
 
     return manager;
+  }
+
+  protected FileManager createInstance(Context context) {
+    return new FileManager();
   }
 }
