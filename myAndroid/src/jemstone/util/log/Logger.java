@@ -37,6 +37,30 @@ public class Logger {
     return logger.isWarnEnabled();
   }
 
+  public void error(Object object) {
+    if (logger.isErrorEnabled() && object != null) {
+      logger.error(object.toString());
+    }
+  }
+
+  public void error(Throwable e, String format, Object ... args) {
+    if (logger.isErrorEnabled()) {
+      logger.error(String.format(format, args), e);
+    }
+  }
+
+  public void warn(Object object) {
+    if (logger.isWarnEnabled() && object != null) {
+      logger.warn(object.toString());
+    }
+  }
+
+  public void warn(String format, Object ... args) {
+    if (logger.isWarnEnabled()) {
+      logger.warn(String.format(format, args));
+    }
+  }
+
   public void info(Object object) {
     if (logger.isInfoEnabled() && object != null) {
       logger.info(object.toString());
@@ -70,18 +94,6 @@ public class Logger {
   public void trace(String format, Object ... args) {
     if (logger.isTraceEnabled()) {
       logger.trace(String.format(format, args));
-    }
-  }
-
-  public void error(Object object) {
-    if (logger.isErrorEnabled() && object != null) {
-      logger.error(object.toString());
-    }
-  }
-
-  public void error(Throwable e, String format, Object ... args) {
-    if (logger.isErrorEnabled()) {
-      logger.error(String.format(format, args), e);
     }
   }
 }

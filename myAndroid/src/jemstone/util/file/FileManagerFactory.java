@@ -1,9 +1,12 @@
 package jemstone.util.file;
 
 import jemstone.util.MyRuntimeException;
+import jemstone.util.log.Logger;
 import android.content.Context;
 
 public class FileManagerFactory implements FileManager.Factory {
+  protected final Logger log = Logger.getLogger(this);
+
   /** Path to read/write from */
   private String filePath = "c:\\temp";
 
@@ -85,6 +88,8 @@ public class FileManagerFactory implements FileManager.Factory {
   @Override
   public FileManager getInstance(Context context) {
     FileManager manager = createInstance(context);
+    
+    log.warn("Created file manager: %s", manager.getClass().getName());
 
     // Set the path and filename to be read/written from
     manager.setFilePath(filePath);

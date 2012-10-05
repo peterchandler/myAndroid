@@ -16,6 +16,18 @@ public class AndroidFileManager extends FileManager {
     setUseExternalStorage(context, useExternalStorage);
   }
 
+  /**
+   * USE FROM TEST CASES ONLY: Setting either of the optional arguments instructs the
+   * file manager to perform differently when run from a test case.
+   * @param context
+   * @param useTestFileName Use {@link #TEST_FILE_NAME} for all load/save operations
+   * @param throwTestException Causes an exception to be thrown during the load/save operations
+   */
+  public AndroidFileManager(Context context, boolean useExternalStorage, boolean useTestFileName, boolean throwTestException) {
+    this(context, useExternalStorage);
+    setThrowTestException(throwTestException);
+  }
+
   protected void setUseExternalStorage(Context context, boolean useExternalStorage) {
     // Determine whether external media can be written to
     String state = Environment.getExternalStorageState();
@@ -32,7 +44,7 @@ public class AndroidFileManager extends FileManager {
       externalStorageAvailable = externalStorageWriteable = false;
     }
     
-    // Set the file path
+    // Derive the Android file path
     File path = null;
     if (useExternalStorage && externalStorageAvailable && externalStorageWriteable) {
       path = context.getExternalFilesDir(null);
@@ -42,18 +54,7 @@ public class AndroidFileManager extends FileManager {
       log.debug("getFilesDir returned: %s", path);
     }
     
+    // Set the path in the parent
     setFilePath(path.getAbsolutePath());
-  }
-
-  /**
-   * USE FROM TEST CASES ONLY: Setting either of the optional arguments instructs the
-   * file manager to perform differently when run from a test case.
-   * @param context
-   * @param useTestFileName Use {@link #TEST_FILE_NAME} for all load/save operations
-   * @param throwTestException Causes an exception to be thrown during the load/save operations
-   */
-  public AndroidFileManager(Context context, boolean useExternalStorage, boolean useTestFileName, boolean throwTestException) {
-    this(context, useExternalStorage);
-    setThrowTestException(throwTestException);
   }
 }
