@@ -22,7 +22,7 @@ public class FileManager {
   private Listener listener;
 
   /** Path where files will be read and written to */
-  private String filePath;
+  private String filePath = "c:/temp";
 
   /** Name of file to be read/written */
   private String fileName = "myandroid.xml";
@@ -137,10 +137,10 @@ public class FileManager {
         createBackup(file);
         newFile.renameTo(file);
     
-        log.info("save finished in %s: %s", timer, file);
+        log.info("Save finished in %s: %s", timer, file);
       }
-    } catch (IOException e) {
-      throw new DaoException(e, "Error writing external file: %s", file);
+    } catch (Exception e) {
+      throw new DaoException(e, "Error writing file: %s", file);
     }
     
     // Notify listener

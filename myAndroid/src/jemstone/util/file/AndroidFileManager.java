@@ -16,18 +16,6 @@ public class AndroidFileManager extends FileManager {
     setUseExternalStorage(context, useExternalStorage);
   }
 
-  /**
-   * USE FROM TEST CASES ONLY: Setting either of the optional arguments instructs the
-   * file manager to perform differently when run from a test case.
-   * @param context
-   * @param useTestFileName Use {@link #TEST_FILE_NAME} for all load/save operations
-   * @param throwTestException Causes an exception to be thrown during the load/save operations
-   */
-  public AndroidFileManager(Context context, boolean useExternalStorage, boolean useTestFileName, boolean throwTestException) {
-    this(context, useExternalStorage);
-    setThrowTestException(throwTestException);
-  }
-
   protected void setUseExternalStorage(Context context, boolean useExternalStorage) {
     // Determine whether external media can be written to
     String state = Environment.getExternalStorageState();
