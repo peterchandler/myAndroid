@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DateEditDialog extends BaseDialogFragment {
+public class DateEditDialog extends BaseDialogFragment<ActivityParameters> {
   public static final String DATE = "DateEditDialog.Date";
 
   private Date date;
@@ -44,7 +44,7 @@ public class DateEditDialog extends BaseDialogFragment {
     dateEdit.addChangedListener(new OnDateChangedListener());
 
     // Update the title
-    getHeader().setTitle(R.string.titleSelectDate, dateEdit.getCalendar());
+    setTitle(R.string.titleSelectDate, dateEdit.getCalendar());
   }
 
   @Override
@@ -73,7 +73,7 @@ public class DateEditDialog extends BaseDialogFragment {
   private class OnDateChangedListener implements DateEditView.OnDateChangedListener {
     @Override
     public void onChanged(Calendar newDate) {
-      getHeader().setTitle(R.string.titleSelectDate, newDate);
+      setTitle(R.string.titleSelectDate, newDate);
     }
   }
 }
