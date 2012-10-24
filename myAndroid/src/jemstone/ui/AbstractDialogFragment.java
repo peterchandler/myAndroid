@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class BaseDialogFragment<T extends ActivityParameters> extends DialogFragment implements OnClickListener {
+public abstract class AbstractDialogFragment<T extends ActivityParameters> extends DialogFragment implements OnClickListener {
 
   private final String TAG = getClass().getSimpleName();
 
@@ -22,11 +22,11 @@ public class BaseDialogFragment<T extends ActivityParameters> extends DialogFrag
 
   protected OnDismissListener onDismissListener;
 
-  public BaseDialogFragment() {
+  public AbstractDialogFragment() {
     super();
   }
 
-  public BaseDialogFragment(T parameters) {
+  public AbstractDialogFragment(T parameters) {
     super();
     this.parameters = parameters;
   }

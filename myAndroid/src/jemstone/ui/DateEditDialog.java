@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DateEditDialog extends BaseDialogFragment<ActivityParameters> {
+public class DateEditDialog extends AbstractDialogFragment<ActivityParameters> {
   public static final String DATE = "DateEditDialog.Date";
 
   private Date date;
