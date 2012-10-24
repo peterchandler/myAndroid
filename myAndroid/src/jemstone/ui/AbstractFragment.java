@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class AbstractFragment<A extends AbstractBaseActivity<AM,AP>,
+public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
                                       AM extends ActivityManager, 
                                       AP extends ActivityParameters> extends Fragment {
   protected final Logger log = Logger.getLogger(this);

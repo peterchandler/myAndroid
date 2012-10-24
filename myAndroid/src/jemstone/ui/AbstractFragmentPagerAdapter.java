@@ -11,7 +11,7 @@ import android.support.v4.view.ViewPager;
 public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends AbstractFragment<?,?,?>> 
               extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
   /** The activity that owns this adapter */
-  private final AbstractBaseActivity<?,?> activity;
+  private final AbstractActivity<?,?> activity;
   
   /** A list of entities to be displayed on each fragment (or page of the view pager) */
   private final List<T> entities;
@@ -19,7 +19,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   /** The list of fragments managed by the view pager */
   private final List<F> fragments;
 
-  public AbstractFragmentPagerAdapter(AbstractBaseActivity<?,?> activity, List<T> entities) {
+  public AbstractFragmentPagerAdapter(AbstractActivity<?,?> activity, List<T> entities) {
     super(activity.getSupportFragmentManager());
     this.activity = activity;
     

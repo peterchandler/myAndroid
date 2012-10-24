@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-public class AbstractBaseActivity<AM extends ActivityManager, AP extends ActivityParameters> extends FragmentActivity {
+public class AbstractActivity<AM extends ActivityManager, AP extends ActivityParameters> extends FragmentActivity {
 
   protected final Logger log = Logger.getLogger(this);
   
@@ -23,7 +23,7 @@ public class AbstractBaseActivity<AM extends ActivityManager, AP extends Activit
   
   private HeaderView headerView;
 
-  public AbstractBaseActivity() {
+  public AbstractActivity() {
     super();
   }
 
