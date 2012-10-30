@@ -119,6 +119,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   @Override
   protected void onPostCreate(Bundle savedInstanceState) {
     super.onPostCreate(savedInstanceState);
+    log.debug("onPostCreate: %s", getParameters());
   }
 
   @Override
@@ -159,5 +160,4 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)));
     }
   }
-
 }

@@ -5,25 +5,35 @@ import java.util.List;
 
 import jemstone.model.HasName;
 import jemstone.myandroid.R;
+import jemstone.util.log.Logger;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends AbstractFragment<?,?,?>> 
               extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+  
+  protected final Logger log = Logger.getLogger(getClass());
+  
   /** The activity that owns this adapter */
   private final AbstractActivity<?,?> activity;
   
   /** A list of entities to be displayed on each fragment (or page of the view pager) */
   private final List<T> entities;
   
+  /** The view pager that this adapter is managing */
+  private final BaseViewPager viewPager;
+  
   /** The list of fragments managed by the view pager */
   private final List<F> fragments;
+  
+  /** The position of the currently selected fragment */
+  private int currentPosition = -1;
 
-  public AbstractFragmentPagerAdapter(AbstractActivity<?,?> activity, List<T> entities) {
+  public AbstractFragmentPagerAdapter(AbstractActivity<?,?> activity, List<T> entities, BaseViewPager viewPager) {
     super(activity.getSupportFragmentManager());
     this.activity = activity;
-    
     this.entities = entities;
+    this.viewPager = viewPager;
     
     this.fragments = new ArrayList<F>(entities.size());
     for (int i=0;  i < entities.size();  i++) {
@@ -48,7 +58,34 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   public F getItem(int position) {
     F fragment = createFragment(position);
     fragments.set(position, fragment);
+    
+    // Force header update in case where current item has been set BEFORE fragment has been created
+    if (position == currentPosition) {
+      updateHeader(fragment, position);
+    }
+    
     return fragment;
+  }
+
+  public int getCurrentPosition() {
+    return currentPosition;
+  }
+
+  public void setCurrentPosition(int position) {
+    log.debug("setCurrentPosition: [position=%s]", position);
+
+    this.currentPosition = position;
+    if (position != -1) {
+      viewPager.setCurrentItem(position);
+    }
+  }
+
+  public void setCurrentItem(T entity) {
+    int position = 0;
+    if (entity != null) {
+      position = indexOf(entity);
+    }
+    setCurrentPosition(position);
   }
 
   public F getFragment(int position) {
@@ -56,9 +93,28 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   }
   
   protected abstract F createFragment(int position);
+  
+  private void updateHeader(F fragment, int position) {
+    final HeaderView headerView = activity.getHeaderView();
+    if (headerView != null) {
+      // Set command handler
+      if (fragment != null) {
+        headerView.setCommandButtonHandler(fragment.getCommandButtonHandler());
+      }
+
+      log.debug("updateHeader: [page=%s, fragment=%s]", position, 
+                (fragment == null) ? null : fragment.getClass().getName());
+
+      // Set title and update buttons
+      headerView.setTitle(getPageTitle(position));
+      headerView.setButtonState();
+    }
+  }
 
   @Override
   public CharSequence getPageTitle(int position) {
+    log.debug("getPageTitle: [position=%s]", position);
+
     final T entity = get(position);
     return (entity != null) ? entity.getName() : null;
   }
@@ -75,18 +131,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
   @Override
   public void onPageSelected(int position) {
-    final HeaderView headerView = activity.getHeaderView();
-    if (headerView != null) {
-      // Set command handler
-      final F fragment = getFragment(position);
-      if (fragment != null) {
-        headerView.setCommandButtonHandler(fragment.getCommandButtonHandler());
-      }
-      
-      // Set title and update buttons
-      headerView.setTitle(getPageTitle(position));
-      headerView.setButtonState();
-    }
+    final F fragment = getFragment(position);
+    log.debug("onPageSelected: [page=%s, fragment=%s]", position, 
+              (fragment == null) ? null : fragment.getClass().getName());
+    
+    updateHeader(fragment, position);
   }
 
   @Override
