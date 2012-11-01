@@ -124,6 +124,10 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
     }
   }
 
+  protected String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
     

@@ -137,7 +137,7 @@ public class HeaderView extends RelativeLayout implements OnClickListener {
     setTitle(text);
   }
 
-  public void setSubTitle(String text) {
+  public void setSubTitle(CharSequence text) {
     subtitle.setText(text);
     subtitle.setVisibility(VISIBLE);
   }

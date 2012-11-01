@@ -20,11 +20,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   /** A list of entities to be displayed on each fragment (or page of the view pager) */
   private final List<T> entities;
   
-  /** The view pager that this adapter is managing */
-  private final BaseViewPager viewPager;
-  
   /** The list of fragments managed by the view pager */
   private final List<F> fragments;
+  
+  /** The view pager that this adapter is managing */
+  private final BaseViewPager viewPager;
   
   /** The position of the currently selected fragment */
   private int currentPosition = -1;
@@ -61,7 +61,8 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     
     // Force header update in case where current item has been set BEFORE fragment has been created
     if (position == currentPosition) {
-      updateHeader(fragment, position);
+      activity.setTitle(getPageTitle(position));
+      activity.setCommandButtonHandler(fragment.getCommandButtonHandler());
     }
     
     return fragment;
@@ -94,23 +95,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   
   protected abstract F createFragment(int position);
   
-  private void updateHeader(F fragment, int position) {
-    final HeaderView headerView = activity.getHeaderView();
-    if (headerView != null) {
-      // Set command handler
-      if (fragment != null) {
-        headerView.setCommandButtonHandler(fragment.getCommandButtonHandler());
-      }
-
-      log.debug("updateHeader: [page=%s, fragment=%s]", position, 
-                (fragment == null) ? null : fragment.getClass().getName());
-
-      // Set title and update buttons
-      headerView.setTitle(getPageTitle(position));
-      headerView.setButtonState();
-    }
-  }
-
   @Override
   public CharSequence getPageTitle(int position) {
     log.debug("getPageTitle: [position=%s]", position);
@@ -134,8 +118,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     final F fragment = getFragment(position);
     log.debug("onPageSelected: [page=%s, fragment=%s]", position, 
               (fragment == null) ? null : fragment.getClass().getName());
-    
-    updateHeader(fragment, position);
+
+    activity.setTitle(getPageTitle(position));
+    if (fragment != null) {
+      activity.setCommandButtonHandler(fragment.getCommandButtonHandler());
+    }
   }
 
   @Override

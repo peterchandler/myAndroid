@@ -1,6 +1,8 @@
 package jemstone.ui;
 
+import jemstone.model.HasName;
 import jemstone.myandroid.R;
+import jemstone.ui.HeaderView.CommandButtonHandler;
 import jemstone.util.log.Logger;
 import android.content.Context;
 import android.content.Intent;
@@ -125,6 +127,51 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   @Override
   protected void onTitleChanged(CharSequence title, int color) {
     super.onTitleChanged(title, color);
+    log.debug("onTitleChanged: [title=%s]", title, getParameters());
+  }
+  
+  /**
+   * Set the title for the activity 
+   * @param title
+   */
+  @Override
+  public void setTitle(CharSequence title) {
+    log.debug("setTitle: [title=%s]", title);
+
+    HeaderView headerView = getHeaderView();
+    if (headerView != null) {
+      headerView.setTitle(title);
+    }
+  }
+
+  @Override
+  public void setTitle(int stringId) {
+    setTitle(getString(stringId));
+  }
+
+  public void setTitle(int stringId, HasName entity) {
+    setTitle(getString(stringId, entity.getName()));
+  }
+
+  public void setTitle(int stringId, Object ... args) {
+    setTitle(getString(stringId, args));
+  }
+
+  public void setSubTitle(CharSequence subtitle) {
+    log.debug("setSubTitle: [subtitle=%s]", subtitle);
+
+    HeaderView headerView = getHeaderView();
+    if (headerView != null) {
+      headerView.setSubTitle(subtitle);
+    }
+  }
+
+  public void setCommandButtonHandler(CommandButtonHandler handler) {
+    HeaderView headerView = getHeaderView();
+    if (headerView != null) {
+      headerView.setCommandButtonHandler(handler);
+      headerView.setButtonState();
+    }
   }
 
   public int getWindowRotation() {
