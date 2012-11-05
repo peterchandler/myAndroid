@@ -62,7 +62,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     // Force header update in case where current item has been set BEFORE fragment has been created
     if (position == currentPosition) {
       activity.setTitle(getPageTitle(position));
-      activity.setMenuItemHandler(fragment.getMenuItemHandler());
+//      activity.setMenuItemHandler(fragment.getMenuItemHandler());
     }
     
     return fragment;
@@ -120,18 +120,16 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
               (fragment == null) ? null : fragment.getClass().getName());
 
     activity.setTitle(getPageTitle(position));
-    if (fragment != null) {
-      activity.setMenuItemHandler(fragment.getMenuItemHandler());
-    }
+//    if (fragment != null) {
+//      activity.setMenuItemHandler(fragment.getMenuItemHandler());
+//    }
   }
 
   @Override
   public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-    // TODO Auto-generated method stub
   }
 
   @Override
   public void onPageScrollStateChanged(int state) {
-    // TODO Auto-generated method stub
   }
 }

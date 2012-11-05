@@ -19,7 +19,7 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   private AP parameters;
   
   private CommandManager commandManager;
-  private MenuItemHandler menuItemHandler;
+  private MenuItemHandler<AM,AP> menuItemHandler;
 
   public AbstractFragment() {
     super();
@@ -38,11 +38,11 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     return commandManager;
   }
 
-  public MenuItemHandler getMenuItemHandler() {
+  public MenuItemHandler<AM,AP> getMenuItemHandler() {
     return menuItemHandler;
   }
 
-  public void setMenuItemHandler(MenuItemHandler menuItemHandler) {
+  public void setMenuItemHandler(MenuItemHandler<AM,AP> menuItemHandler) {
     this.menuItemHandler = menuItemHandler;
   }
 
@@ -108,9 +108,13 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     log.debug("onRefresh:%s", getParameters());
   }
 
-  public void refresh() {
+  public final void refresh() {
     log.debug("refresh: %s", getParameters());
+    
     onRefresh();
+    if (menuItemHandler != null) {
+      menuItemHandler.onRefresh();
+    }
   }
 
   public void finishActivity() {

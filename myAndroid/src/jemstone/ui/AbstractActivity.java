@@ -21,7 +21,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   private AM activityManager;
   private AP parameters;
   
-  private MenuItemHandler menuItemHandler;
+  private MenuItemHandler<AM,AP> menuItemHandler;
 
   public AbstractActivity() {
     super();
@@ -35,11 +35,11 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     this.activityManager = activityManager;
   }
 
-  public MenuItemHandler getMenuItemHandler() {
+  public MenuItemHandler<AM,AP> getMenuItemHandler() {
     return menuItemHandler;
   }
 
-  public void setMenuItemHandler(MenuItemHandler handler) {
+  public void setMenuItemHandler(MenuItemHandler<AM,AP> handler) {
     this.menuItemHandler = handler;
   }
 
