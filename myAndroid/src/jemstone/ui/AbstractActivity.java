@@ -1,8 +1,6 @@
 package jemstone.ui;
 
 import jemstone.model.HasName;
-import jemstone.myandroid.R;
-import jemstone.ui.HeaderView.CommandButtonHandler;
 import jemstone.util.log.Logger;
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +21,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   private AM activityManager;
   private AP parameters;
   
-  private HeaderView headerView;
+  private MenuItemHandler menuItemHandler;
 
   public AbstractActivity() {
     super();
@@ -35,6 +33,14 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
 
   public void setActivityManager(AM activityManager) {
     this.activityManager = activityManager;
+  }
+
+  public MenuItemHandler getMenuItemHandler() {
+    return menuItemHandler;
+  }
+
+  public void setMenuItemHandler(MenuItemHandler handler) {
+    this.menuItemHandler = handler;
   }
 
   public AP getParameters() {
@@ -106,13 +112,6 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     log.debug("onResume: %s", getParameters());
   }
 
-  public HeaderView getHeaderView() {
-    if (headerView == null) {
-      headerView = (HeaderView) findViewById(R.id.header_view);
-    }
-    return headerView;
-  }
-
   @Override
   public MenuInflater getMenuInflater() {
     return super.getMenuInflater();
@@ -130,24 +129,6 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     log.debug("onTitleChanged: [title=%s]", title, getParameters());
   }
   
-  /**
-   * Set the title for the activity 
-   * @param title
-   */
-  @Override
-  public void setTitle(CharSequence title) {
-    log.debug("setTitle: [title=%s]", title);
-
-    HeaderView headerView = getHeaderView();
-    if (headerView != null) {
-      headerView.setTitle(title);
-    }
-  }
-
-  @Override
-  public void setTitle(int stringId) {
-    setTitle(getString(stringId));
-  }
 
   public void setTitle(int stringId, HasName entity) {
     setTitle(getString(stringId, entity.getName()));
@@ -159,19 +140,6 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
 
   public void setSubTitle(CharSequence subtitle) {
     log.debug("setSubTitle: [subtitle=%s]", subtitle);
-
-    HeaderView headerView = getHeaderView();
-    if (headerView != null) {
-      headerView.setSubTitle(subtitle);
-    }
-  }
-
-  public void setCommandButtonHandler(CommandButtonHandler handler) {
-    HeaderView headerView = getHeaderView();
-    if (headerView != null) {
-      headerView.setCommandButtonHandler(handler);
-      headerView.setButtonState();
-    }
   }
 
   public int getWindowRotation() {

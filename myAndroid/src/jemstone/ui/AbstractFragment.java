@@ -1,7 +1,6 @@
 package jemstone.ui;
 
 import jemstone.model.HasName;
-import jemstone.ui.HeaderView.CommandButtonHandler;
 import jemstone.util.command.CommandManager;
 import jemstone.util.log.Logger;
 import android.app.Activity;
@@ -20,7 +19,7 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   private AP parameters;
   
   private CommandManager commandManager;
-  private CommandButtonHandler commandButtonHandler;
+  private MenuItemHandler menuItemHandler;
 
   public AbstractFragment() {
     super();
@@ -35,22 +34,18 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     return activity.getActivityManager();
   }
 
-  public CommandButtonHandler getCommandButtonHandler() {
-    return commandButtonHandler;
-  }
-
-  public void setCommandButtonHandler(CommandButtonHandler commandButtonHandler) {
-    this.commandButtonHandler = commandButtonHandler;
-  }
-
   public CommandManager getCommandManager() {
     return commandManager;
   }
 
-  private HeaderView getHeaderView() {
-    return (activity != null) ? activity.getHeaderView() : null;
+  public MenuItemHandler getMenuItemHandler() {
+    return menuItemHandler;
   }
-  
+
+  public void setMenuItemHandler(MenuItemHandler menuItemHandler) {
+    this.menuItemHandler = menuItemHandler;
+  }
+
   @SuppressWarnings("unchecked")
   @Override
   public void onAttach(Activity activity) {
@@ -113,14 +108,9 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     log.debug("onRefresh:%s", getParameters());
   }
 
-  public final void refresh() {
+  public void refresh() {
     log.debug("refresh: %s", getParameters());
     onRefresh();
-
-    HeaderView headerView = getHeaderView();
-    if (headerView != null) {
-      headerView.setButtonState();
-    }
   }
 
   public void finishActivity() {
@@ -166,22 +156,22 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
    */
   public void setTitle(CharSequence title) {
     activity.setTitle(title);
-    activity.setCommandButtonHandler(commandButtonHandler);
+    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId) {
     activity.setTitle(stringId);
-    activity.setCommandButtonHandler(commandButtonHandler);
+    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId, HasName entity) {
     activity.setTitle(stringId, entity.getName());
-    activity.setCommandButtonHandler(commandButtonHandler);
+    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId, Object ... args) {
     activity.setTitle(stringId, args);
-    activity.setCommandButtonHandler(commandButtonHandler);
+    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setSubTitle(CharSequence subtitle) {

@@ -62,7 +62,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     // Force header update in case where current item has been set BEFORE fragment has been created
     if (position == currentPosition) {
       activity.setTitle(getPageTitle(position));
-      activity.setCommandButtonHandler(fragment.getCommandButtonHandler());
+      activity.setMenuItemHandler(fragment.getMenuItemHandler());
     }
     
     return fragment;
@@ -121,7 +121,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
     activity.setTitle(getPageTitle(position));
     if (fragment != null) {
-      activity.setCommandButtonHandler(fragment.getCommandButtonHandler());
+      activity.setMenuItemHandler(fragment.getMenuItemHandler());
     }
   }
 

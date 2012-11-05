@@ -35,7 +35,7 @@ public class HeaderView extends RelativeLayout implements OnClickListener {
   private View cancel;
   private View config;
 
-  private CommandButtonHandler handler;
+  private MenuItemHandler handler;
 
   public HeaderView(Context context) {
     super(context);
@@ -86,17 +86,9 @@ public class HeaderView extends RelativeLayout implements OnClickListener {
 
   @Override
   public void onClick(View view) {
-    // Propagate the click event
-    if (handler != null) {
-      handler.onClick(view);
-    }
-
-    // Refresh the button state
-    setButtonState();
   }
 
   public void setButtonState() {
-    back.setVisibility(handler != null && handler.canHome() ? View.VISIBLE : View.GONE);
     undo.setVisibility(handler != null && handler.canUndo() ? View.VISIBLE : View.GONE);
     redo.setVisibility(handler != null && handler.canRedo() ? View.VISIBLE : View.GONE);
     add.setVisibility (handler != null && handler.canAdd()  ? View.VISIBLE : View.GONE);
@@ -106,11 +98,11 @@ public class HeaderView extends RelativeLayout implements OnClickListener {
     config.setVisibility(handler != null && handler.canConfig() ? View.VISIBLE : View.GONE);
   }
 
-  public CommandButtonHandler getCommandButtonHandler() {
+  public MenuItemHandler getCommandButtonHandler() {
     return handler;
   }
 
-  public void setCommandButtonHandler(CommandButtonHandler handler) {
+  public void setCommandButtonHandler(MenuItemHandler handler) {
     this.handler = handler;
   }
   
@@ -146,27 +138,7 @@ public class HeaderView extends RelativeLayout implements OnClickListener {
     setSubTitle(context.getString(stringId));
   }
   
-  public CommandButtonHandler getCommandHandler() {
+  public MenuItemHandler getCommandHandler() {
     return handler;
-  }
-
-  public interface CommandButtonHandler extends OnClickListener {
-    public boolean canHome();
-    public boolean canUndo();
-    public boolean canRedo();
-    public boolean canAdd();
-    public boolean canDelete();
-    public boolean canAccept();
-    public boolean canCancel();
-    public boolean canConfig();
-    
-    public void onHome();
-    public void onUndo();
-    public void onRedo();
-    public void onAdd();
-    public void onDelete();
-    public void onAccept();
-    public void onCancel();
-    public void onConfig();
   }
 }

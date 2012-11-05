@@ -16,7 +16,6 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
   protected final Logger log = Logger.getLogger(this);
 
   private T parameters;
-  private HeaderView header;
   private String title;
   private String subtitle;
 
@@ -62,15 +61,13 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
     super.onActivityCreated(savedInstanceState);
     log.debug("onActivityCreated: %s", getParameters());
     
-    // Get the header, and set title and subtitle if requested
-    header = (HeaderView) getView().findViewById(R.id.header_view);
-    
     // Set title, and list properties
     if (title != null) {
-      header.setTitle(title);
+      getDialog().setTitle(title);
     }
     if (subtitle != null) {
-      header.setSubTitle(subtitle);
+      // TODO Handle subtitle
+//      header.setSubTitle(subtitle);
     }
     
     // Initialize OK/Cancel buttons
@@ -130,14 +127,11 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
 
   public void setTitle(String title) {
     this.title = title;
-    
-    if (header != null) {
-      header.setTitle(title);
-    }
+    getDialog().setTitle(title);
   }
 
   public void setTitle(int resId) {
-    setTitle(getString(resId));
+    getDialog().setTitle(resId);
   }
 
   public void setTitle(int resId, Object ... args) {
@@ -146,10 +140,7 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
 
   public void setSubTitle(String subtitle) {
     this.subtitle = subtitle;
-    
-    if (header != null) {
-      header.setSubTitle(subtitle);
-    }
+    // TODO Handle subtitle
   }
 
   public void setOnDismissListener(OnDismissListener onDismissListener) {
