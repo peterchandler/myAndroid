@@ -109,10 +109,16 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   }
 
   public final void refresh() {
-    log.debug("refresh: %s", getParameters());
+    refresh(true, true);
+  }
+  
+  public final void refresh(boolean fragment, boolean menu) {
+    log.debug("refresh: [fragment=%s, menu=%s] %s", fragment, menu, getParameters());
     
-    onRefresh();
-    if (menuItemHandler != null) {
+    if (fragment) {
+      onRefresh();
+    }
+    if (menu && menuItemHandler != null) {
       menuItemHandler.onRefresh();
     }
   }

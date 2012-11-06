@@ -51,7 +51,6 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
 
     setParameters(savedInstanceState);
     setHasOptionsMenu(true);
-    setStyle(STYLE_NO_TITLE, 0);
 
     log.debug("onCreate: %s", getParameters());
   }

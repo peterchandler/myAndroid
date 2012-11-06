@@ -20,6 +20,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   
   private AM activityManager;
   private AP parameters;
+  private boolean isHomeActivity = false;
   
   private MenuItemHandler<AM,AP> menuItemHandler;
 
@@ -41,6 +42,14 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
 
   public void setMenuItemHandler(MenuItemHandler<AM,AP> handler) {
     this.menuItemHandler = handler;
+  }
+
+  public boolean isHomeActivity() {
+    return isHomeActivity;
+  }
+
+  public void setHomeActivity(boolean isHomeActivity) {
+    this.isHomeActivity = isHomeActivity;
   }
 
   public AP getParameters() {
@@ -76,6 +85,9 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     } else {
       setParameters(getIntent().getExtras());
     }
+    
+    //
+    getActionBar().setDisplayHomeAsUpEnabled(!isHomeActivity);
   
     // Don't want keyboard on startup
     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

@@ -59,10 +59,9 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     F fragment = createFragment(position);
     fragments.set(position, fragment);
     
-    // Force header update in case where current item has been set BEFORE fragment has been created
+    // Force title update
     if (position == currentPosition) {
       activity.setTitle(getPageTitle(position));
-//      activity.setMenuItemHandler(fragment.getMenuItemHandler());
     }
     
     return fragment;
@@ -120,9 +119,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
               (fragment == null) ? null : fragment.getClass().getName());
 
     activity.setTitle(getPageTitle(position));
-//    if (fragment != null) {
-//      activity.setMenuItemHandler(fragment.getMenuItemHandler());
-//    }
   }
 
   @Override
