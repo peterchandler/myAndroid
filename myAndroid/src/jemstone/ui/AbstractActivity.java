@@ -152,11 +152,17 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
 
   public void setSubTitle(CharSequence subtitle) {
     log.debug("setSubTitle: [subtitle=%s]", subtitle);
+    getActionBar().setSubtitle(subtitle);
   }
 
   public int getWindowRotation() {
     WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
     return windowManager.getDefaultDisplay().getRotation();
+  }
+
+  public int getWindowWidth() {
+    WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+    return windowManager.getDefaultDisplay().getWidth();
   }
 
   public boolean isLandscape() {

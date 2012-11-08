@@ -166,22 +166,18 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
    */
   public void setTitle(CharSequence title) {
     activity.setTitle(title);
-    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId) {
     activity.setTitle(stringId);
-    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId, HasName entity) {
     activity.setTitle(stringId, entity.getName());
-    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setTitle(int stringId, Object ... args) {
     activity.setTitle(stringId, args);
-    activity.setMenuItemHandler(menuItemHandler);
   }
 
   public void setSubTitle(CharSequence subtitle) {
