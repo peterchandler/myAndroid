@@ -156,13 +156,12 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   }
 
   public int getWindowRotation() {
-    WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-    return windowManager.getDefaultDisplay().getRotation();
+    return getWindowManager().getDefaultDisplay().getRotation();
   }
 
+  @SuppressWarnings("deprecation")
   public int getWindowWidth() {
-    WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-    return windowManager.getDefaultDisplay().getWidth();
+    return getWindowManager().getDefaultDisplay().getWidth();
   }
 
   public boolean isLandscape() {
