@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jemstone.model.HasName;
-import jemstone.myandroid.R;
 import jemstone.util.log.Logger;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -61,8 +60,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     
     // Force title update
     if (position == currentPosition) {
-//      activity.setTitle(getPageTitle(position));
-      activity.setSubTitle(get(position).getName());
+      setActivityTitle(position);
     }
     
     return fragment;
@@ -97,20 +95,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   
   @Override
   public CharSequence getPageTitle(int position) {
-    log.debug("getPageTitle: [position=%s]", position);
-
-    final T entity = get(position);
-    return (entity != null) ? entity.getName() : null;
-  }
-
-  protected CharSequence formatTitle(int position, int typeResId) {
-    T entity = get(position);
-    if (entity.getName() != null) {
-      return activity.getString(R.string.titleEdit, entity.getName());
-    } 
-    
-    String name = activity.getString(typeResId);
-    return activity.getString(R.string.titleCreate, name);
+    return null;
   }
 
   @Override
@@ -119,7 +104,14 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     log.debug("onPageSelected: [page=%s, fragment=%s]", position, 
               (fragment == null) ? null : fragment.getClass().getName());
 
-//    activity.setTitle(getPageTitle(position));
+    setActivityTitle(position);
+  }
+
+  private void setActivityTitle(int position) {
+    final CharSequence title = getPageTitle(position);
+    if (title != null) {
+      activity.setTitle(title);
+    }
     activity.setSubTitle(get(position).getName());
   }
 
