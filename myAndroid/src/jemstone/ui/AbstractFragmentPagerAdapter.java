@@ -61,7 +61,8 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     
     // Force title update
     if (position == currentPosition) {
-      activity.setTitle(getPageTitle(position));
+//      activity.setTitle(getPageTitle(position));
+      activity.setSubTitle(get(position).getName());
     }
     
     return fragment;
@@ -118,7 +119,8 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     log.debug("onPageSelected: [page=%s, fragment=%s]", position, 
               (fragment == null) ? null : fragment.getClass().getName());
 
-    activity.setTitle(getPageTitle(position));
+//    activity.setTitle(getPageTitle(position));
+    activity.setSubTitle(get(position).getName());
   }
 
   @Override
