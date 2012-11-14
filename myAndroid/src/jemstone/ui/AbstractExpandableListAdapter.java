@@ -81,33 +81,47 @@ public abstract class AbstractExpandableListAdapter<T extends HasName> extends B
 
   @Override
   public T getChild(int groupPosition, int childPosition) {
-    if (groupPosition >= children.size()) {
+    try {
+      return children.get(groupPosition).get(childPosition);
+    } catch (Exception e) {
       return null;
     }
-    return children.get(groupPosition).get(childPosition);
   }
 
   @Override
   public long getChildId(int groupPosition, int childPosition) {
-    return getChild(groupPosition, childPosition).getId();
+    try {
+      return getChild(groupPosition, childPosition).getId();
+    } catch (Exception e) {
+      return 0;
+    }
   }
 
   @Override
   public int getChildrenCount(int groupPosition) {
-    if (groupPosition >= children.size()) {
+    try {
+      return children.get(groupPosition).size();
+    } catch (Exception e) {
       return 0;
     }
-    return children.get(groupPosition).size();
   }
 
   @Override
   public String getGroup(int groupPosition) {
-    return (groups != null) ? groups.get(groupPosition) : null;
+    try {
+      return groups.get(groupPosition);
+    } catch (Exception e) {
+      return null;
+    }
   }
 
   @Override
   public int getGroupCount() {
-    return (groups != null) ? groups.size() : 0;
+    try {
+      return groups.size();
+    } catch (Exception e) {
+      return 0;
+    }
   }
 
   @Override
