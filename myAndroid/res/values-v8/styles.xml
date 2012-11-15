@@ -8,11 +8,14 @@
     <item name="android:textSize">15sp</item>
     <item name="android:textStyle">normal</item>
   </style>
-  <style name="TextMedium.Blue">
-    <item name="android:textColor">@color/blueText</item>
+  <style name="TextMedium.Gray" parent="TextMedium">
+    <item name="android:textColor">?android:attr/textColorSecondary</item>
   </style>
   <style name="TextMedium.Dark" parent="TextMedium">
     <item name="android:textColor">?android:attr/textColorTertiary</item>
+  </style>
+  <style name="TextMedium.Blue">
+    <item name="android:textColor">@color/blueText</item>
   </style>
   <style name="TextMedium.Selectable">
     <item name="android:background">@android:drawable/list_selector_background</item>
@@ -21,9 +24,9 @@
     <item name="android:background">@android:drawable/list_selector_background</item>
   </style>
   <style name="TextSmall" parent="android:TextAppearance.Small">
-    <item name="android:textSize">13sp</item>
+    <item name="android:textSize">14sp</item>
     <item name="android:textStyle">normal</item>
-    <item name="android:textColor">?android:attr/textColorTertiary</item>
+    <item name="android:textColor">?android:attr/textColorSecondary</item>
   </style>
   <style name="TextSmall.Dark" parent="TextSmall">
     <item name="android:textColor">?android:attr/textColorTertiary</item>
@@ -41,9 +44,11 @@
   </style>
   <style name="EditText" parent="android:Widget.EditText">
     <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-    <item name="android:textColor">@android:color/white</item>
+    <!--
+    <item name="android:textColor">?android:attr/textColorPrimary</item>
     <item name="android:background">@drawable/edit_text_holo_dark</item>
-    <item name="android:paddingLeft">8dp</item>
+    <item name="android:paddingLeft">8dp</item>
+    -->
   </style>
   <style name="DialogButton">
     <item name="android:gravity">center</item>
@@ -54,11 +59,14 @@
   <style name="MyExpandableListView" parent="android:Widget.ExpandableListView">
     <item name="android:groupIndicator">@drawable/expander_group</item>
   </style>
-  <style name="ListGroup">
-    <!-- 
+  <style name="MyExpandableListView2" parent="MyExpandableListView">
+    <item name="android:childDivider">@color/listChildDivider</item>
+    <!--
+    <item name="android:childDivider">@color/childDivider</item>
     <item name="android:divider">@color/blueLine</item>
-    <item name="android:childDivider">?android:attr/listDivider</item>
-     -->
+    -->
+  </style>
+  <style name="ListGroup">
     <item name="android:gravity">center_vertical</item>
     <item name="android:paddingTop">5dp</item>
     <item name="android:paddingBottom">5dp</item>

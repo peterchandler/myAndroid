@@ -8,7 +8,8 @@ import java.util.Date;
 public class Formatter {
   private static String[] numbersWithSuffix;
 
-  private final NumberFormat currencyFormat = Formatter.getCurrencyFormat();
+  private final NumberFormat amountFormat = Formatter.getAmountFormat();
+//  private final NumberFormat currencyFormat = Formatter.getCurrencyFormat();
   private final NumberFormat percentFormat  = Formatter.getPercentFormat();
   private final DateFormat dateFormat = Formatter.getDateInstance();
 
@@ -42,9 +43,12 @@ public class Formatter {
   }
 
   public static NumberFormat getAmountFormat() {
+    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
     NumberFormat format = NumberFormat.getNumberInstance();
-    format.setMaximumFractionDigits(2);
-    format.setGroupingUsed(true);
+    format.setMinimumIntegerDigits(currencyFormat.getMinimumIntegerDigits());
+    format.setMinimumFractionDigits(currencyFormat.getMinimumFractionDigits());
+    format.setMaximumFractionDigits(currencyFormat.getMaximumFractionDigits());
+    format.setGroupingUsed(currencyFormat.isGroupingUsed());
     return format;
   }
 
@@ -103,7 +107,7 @@ public class Formatter {
   }
 
   public String formatCurrency(double value) {
-    return Double.isNaN(value) ? "" : currencyFormat.format(value);
+    return Double.isNaN(value) ? "" : amountFormat.format(value);
   }
 
   public String formatPercent(double value) {
