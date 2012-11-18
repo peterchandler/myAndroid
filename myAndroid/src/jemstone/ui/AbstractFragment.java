@@ -183,4 +183,8 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   public void setSubTitle(CharSequence subtitle) {
     activity.setSubTitle(subtitle);
   }
+
+  public void setSubTitle(String format, Object ... args) {
+    activity.setSubTitle(format, args);
+  }
 }

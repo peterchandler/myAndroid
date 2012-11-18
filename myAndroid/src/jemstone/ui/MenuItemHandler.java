@@ -19,6 +19,7 @@ public interface MenuItemHandler<AM extends ActivityManager, AP extends Activity
   public void onDelete();
   public void onAccept();
   public void onCancel();
+  public void onReload();
 
   public void onRefresh();
   public void onCreateMenu(Menu menu, MenuInflater inflater, AP parameters);

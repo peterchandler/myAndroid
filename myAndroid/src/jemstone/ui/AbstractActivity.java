@@ -155,6 +155,10 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     getActionBar().setSubtitle(subtitle);
   }
 
+  public void setSubTitle(String format, Object ... args) {
+    setSubTitle(String.format(format, args));
+  }
+
   public int getWindowRotation() {
     return getWindowManager().getDefaultDisplay().getRotation();
   }

@@ -15,9 +15,10 @@
     
     <property name="mycashflow.res.dir" value="C:\Users\Peter\Documents\GitHub\jemstone\myAndroid\res" />
     
-    <copy todir="${mycashflow.res.dir}">
+    <copy todir="${mycashflow.res.dir}" verbose="true">
       <fileset dir="${images.src.dir}">
         <include name="**/1-navigation-*.*" />
+        <include name="**/2-action-*.*" />
         <include name="**/4-collections-new-label.*" />
         <include name="**/5-content-discard.*" />
         <include name="**/5-content-new.*" />
