@@ -69,8 +69,8 @@ public class RepeatIterator implements Iterator<Calendar> {
    * @return
    */
   public static Calendar getNextOccurrence(Repeat repeat, Date startDate) {
-    Calendar start = (startDate != null) ? DateUtil.calendar(startDate) : Calendar.getInstance();
-    Calendar now = Calendar.getInstance();
+    Calendar start = (startDate != null) ? DateUtil.calendar(startDate) : DateUtil.getCurrentDate();
+    Calendar now = DateUtil.getCurrentDate();
     Calendar next = null;
 
     RepeatIterator iterator = new RepeatIterator(repeat, start);

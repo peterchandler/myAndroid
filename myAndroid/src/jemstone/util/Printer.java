@@ -13,9 +13,9 @@ import jemstone.model.HasName;
 
 
 public class Printer {
-  public static final String DATE_FORMAT = "%1$2te-%1$2tm-%1$tY";
-  public static final String AMOUNT_FORMAT = "%1$12.2f";
-  public static final String PERCENT_FORMAT = "%1$6.2f%%";
+  public static final String DATE_FORMAT = "%1$tF %1$tT";
+  public static final String AMOUNT_FORMAT = "%1$.2f";
+  public static final String PERCENT_FORMAT = "%1$.2f%%";
 
   public static PrintWriter getWriter(Writer writer) {
     return new PrintWriter(writer, true);
@@ -58,20 +58,20 @@ public class Printer {
       return;
     }
 
-    out.format("%-20.20s", object.getClass().getSimpleName());
+    out.format("%.20s", object.getClass().getSimpleName());
 
     if (object instanceof HasId) {
-      out.format(" id=%-4d", ((HasId)object).getId());
+      out.format(" id=%-2d", ((HasId)object).getId());
     }
     if (object instanceof HasName) {
-      out.format(" name=%-20.20s", ((HasName)object).getName());
+      out.format(" name=%s", ((HasName)object).getName());
     }
     if (object instanceof HasDate) {
-      out.print(" ");
+      out.print(" date=");
       print(out, ((HasDate)object).getDate());
     }
     if (object instanceof HasAmount) {
-      out.print(" ");
+      out.print(" amount=");
       print(out, ((HasAmount)object).getAmount());
     }
   }

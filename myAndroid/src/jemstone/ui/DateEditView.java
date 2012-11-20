@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 public class DateEditView extends LinearLayout {
   private static final Logger log = Logger.getLogger(DateEditView.class);
 
-  private Calendar calendar = Calendar.getInstance();
+  private Calendar calendar = DateUtil.getCurrentDate();
 
   private DayAdapter dayAdapter;
   private MonthAdapter monthAdapter;
