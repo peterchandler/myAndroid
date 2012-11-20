@@ -9,7 +9,7 @@ public class Formatter {
   private static String[] numbersWithSuffix;
 
   private final NumberFormat amountFormat = Formatter.getAmountFormat();
-//  private final NumberFormat currencyFormat = Formatter.getCurrencyFormat();
+  private final NumberFormat currencyFormat = Formatter.getCurrencyFormat();
   private final NumberFormat percentFormat  = Formatter.getPercentFormat();
   private final DateFormat dateFormat = Formatter.getDateInstance();
 
@@ -106,8 +106,12 @@ public class Formatter {
     return (date == null) ? "" : String.format("%1$ta, %1$te-%1$tb-%1$tY", date);
   }
 
-  public String formatCurrency(double value) {
+  public String formatAmount(double value) {
     return Double.isNaN(value) ? "" : amountFormat.format(value);
+  }
+
+  public String formatCurrency(double value) {
+    return Double.isNaN(value) ? "" : currencyFormat.format(value);
   }
 
   public String formatPercent(double value) {

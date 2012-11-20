@@ -96,7 +96,7 @@ public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter
     if (item instanceof HasAmount) {
       TextView amount = (TextView)view.findViewById(R.id.amount);
       if (amount != null) {
-        String text = formatter.formatCurrency(((HasAmount) item).getAmount());
+        String text = formatter.formatAmount(((HasAmount) item).getAmount());
         amount.setText(text);
       }
     }
