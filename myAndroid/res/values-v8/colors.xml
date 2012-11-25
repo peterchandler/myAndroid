@@ -11,6 +11,6 @@
   <color name="headerGrayStartColor">#5C5C5C</color>
   <color name="headerGrayEndColor">#232323</color>
   <color name="listGroupColor">#333333</color>
-  <color name="listDivider">#5C5C5C</color>
+  <color name="listDivider">#33B5E5</color>
   <color name="listChildDivider">#5C5C5C</color>
 </resources>

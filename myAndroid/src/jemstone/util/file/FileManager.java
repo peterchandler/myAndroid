@@ -92,7 +92,8 @@ public class FileManager {
     if (listener != null) {
       listener.onPreLoad();
     }
-
+    
+    log.info("Load started");
     Timer timer = new Timer();
     
     // Load the file
@@ -101,10 +102,9 @@ public class FileManager {
     if (reader != null) {
       loadDao.load(reader);
       reader.close();
-    
-      log.info("load finished in %s: %s", timer, file);
+
+      log.info("Load finished in %s: %s", timer, file);
     }
-    
     // Notify listener
     if (listener != null) {
       listener.onPostLoad();
@@ -113,36 +113,36 @@ public class FileManager {
 
   @SuppressWarnings("unchecked")
   public synchronized void save(EntityManager manager) throws DaoException, IOException {
-    log.info("Save called");
-    
     // Notify listener
     if (listener != null) {
       listener.onPreSave();
     }
     
+    log.info("Save started");
+    
     // Save to file
     File file = getFile();
     try {
       Timer timer = new Timer();
-    
+
       // Create new file
       File newFile = new File(file.toString() + ".new");
-    
+
       Writer writer = new FileWriter(newFile);
       if (writer != null) {
         saveDao.save(manager, writer);
         writer.close();
-    
+
         // Rename the new file to the one we want
         createBackup(file);
         newFile.renameTo(file);
-    
+
         log.info("Save finished in %s: %s", timer, file);
       }
     } catch (Exception e) {
       throw new DaoException(e, "Error writing file: %s", file);
     }
-    
+
     // Notify listener
     if (listener != null) {
       listener.onPostSave();

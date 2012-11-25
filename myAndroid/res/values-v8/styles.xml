@@ -60,10 +60,9 @@
     <item name="android:groupIndicator">@drawable/expander_group</item>
   </style>
   <style name="MyExpandableListView2" parent="MyExpandableListView">
-    <item name="android:childDivider">@color/listChildDivider</item>
     <!--
-    <item name="android:childDivider">@color/childDivider</item>
     <item name="android:divider">@color/blueLine</item>
+    <item name="android:childDivider">@color/childDivider</item>
     -->
   </style>
   <style name="ListGroup">
