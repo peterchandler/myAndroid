@@ -1,5 +1,6 @@
 package jemstone.util;
 
+import java.util.Comparator;
 import java.util.Date;
 
 import jemstone.model.HasDate;
@@ -8,6 +9,10 @@ import jemstone.util.compare.DateComparator;
 public class DateOrderedList<E extends HasDate> extends OrderedList<E> {
   public DateOrderedList() {
     super(new DateComparator());
+  }
+
+  public DateOrderedList(Comparator<? super E> comparator) {
+    super(comparator);
   }
 
   /**
