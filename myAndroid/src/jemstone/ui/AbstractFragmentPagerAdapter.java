@@ -101,13 +101,13 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   @Override
   public void onPageSelected(int position) {
     final F fragment = getFragment(position);
-    log.debug("onPageSelected: [page=%s, fragment=%s]", position, 
-              (fragment == null) ? null : fragment.getClass().getName());
+    log.debug("onPageSelected: [page=%s, fragment=%s] [%s]", position, 
+              (fragment == null) ? null : fragment.getClass().getSimpleName(), get(position));
 
     setActivityTitle(position);
   }
 
-  private void setActivityTitle(int position) {
+  public void setActivityTitle(int position) {
     final CharSequence title = getPageTitle(position);
     if (title != null) {
       activity.setTitle(title);
