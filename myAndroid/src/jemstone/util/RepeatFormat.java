@@ -130,8 +130,10 @@ public class RepeatFormat {
       case WEEKLY:  return "week";
       case MONTHLY: return "month";
       case YEARLY:  return "year";
+      case SINGLE:
+      default:
+        return null;
     }
-    return null;
   }
 
   public String getDayOfWeek(int dayOfWeek) {
