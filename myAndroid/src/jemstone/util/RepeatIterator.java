@@ -62,6 +62,10 @@ public class RepeatIterator implements Iterator<Calendar> {
     this(repeat, DateUtil.calendar(start), DateUtil.calendar(finish));
   }
 
+  public Calendar getCurrent() {
+    return current;
+  }
+
   /**
    * Calculate the first occurrence of the specified repeat that occurs AFTER the current time.
    * @param repeat
