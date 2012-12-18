@@ -35,9 +35,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     this.viewPager = viewPager;
     
     this.fragments = new ArrayList<F>(entities.size());
-    for (int i=0;  i < entities.size();  i++) {
-      this.fragments.add(null);
-    }
+    ensureCapacity(entities.size());
   }
   
   public T get(int index) {
@@ -56,7 +54,7 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   @Override
   public F getItem(int position) {
     F fragment = createFragment(position);
-    fragments.set(position, fragment);
+    setFragment(position, fragment);
     
     // Force title update
     if (position == currentPosition) {
@@ -64,6 +62,17 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     }
     
     return fragment;
+  }
+
+  private void setFragment(int position, F fragment) {
+    ensureCapacity(position+1);
+    fragments.set(position, fragment);
+  }
+
+  private void ensureCapacity(int size) {
+    for (int i = fragments.size();  i < size;  i++) {
+      fragments.add(null);
+    }
   }
 
   public int getCurrentPosition() {

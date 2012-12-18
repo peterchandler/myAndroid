@@ -12,6 +12,7 @@ public interface MenuItemHandler<AM extends ActivityManager, AP extends Activity
   public boolean canAccept();
   public boolean canCancel();
   public boolean canConfig();
+  public boolean canReload();
   
   public void onUndo();
   public void onRedo();
