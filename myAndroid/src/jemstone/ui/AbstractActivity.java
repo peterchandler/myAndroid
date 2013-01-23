@@ -87,7 +87,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     }
     
     //
-    getActionBar().setDisplayHomeAsUpEnabled(!isHomeActivity);
+    getActionBar().setDisplayHomeAsUpEnabled(!isHomeActivity());
   
     // Don't want keyboard on startup
     getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);

@@ -32,6 +32,7 @@
   <string name="amount">Amount</string>
   <string name="configure">Configure</string>
   <string name="refresh">Refresh</string>
+  <string name="next">Next</string>
   
   <string-array name="repeat_frequency">
     <item>Once</item>

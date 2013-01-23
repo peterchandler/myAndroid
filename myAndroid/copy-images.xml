@@ -13,7 +13,7 @@
     <delete dir="${images.target.dir}" />
     <mkdir dir="${images.target.dir}" />
     
-    <property name="mycashflow.res.dir" value="C:\Users\Peter\Documents\GitHub\jemstone\myAndroid\res" />
+    <property name="mycashflow.res.dir" value="C:\Users\Peter\Documents\GitHub\myAndroid\myAndroid\res" />
     
     <copy todir="${mycashflow.res.dir}" verbose="true">
       <fileset dir="${images.src.dir}">

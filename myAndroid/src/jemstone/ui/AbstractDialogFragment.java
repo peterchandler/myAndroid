@@ -3,6 +3,7 @@ package jemstone.ui;
 import jemstone.myandroid.R;
 import jemstone.util.log.Logger;
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -126,11 +127,17 @@ public abstract class AbstractDialogFragment<T extends ActivityParameters> exten
 
   public void setTitle(String title) {
     this.title = title;
-    getDialog().setTitle(title);
+    Dialog dialog = getDialog();
+    if (dialog != null) {
+      dialog.setTitle(title);
+    }
   }
 
   public void setTitle(int resId) {
-    getDialog().setTitle(resId);
+    Dialog dialog = getDialog();
+    if (dialog != null) {
+      dialog.setTitle(resId);
+    }
   }
 
   public void setTitle(int resId, Object ... args) {
