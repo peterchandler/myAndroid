@@ -82,7 +82,7 @@ public abstract class AbstractExpandableListAdapter<T extends HasName> extends B
   @Override
   public T getChild(int groupPosition, int childPosition) {
     try {
-      return children.get(groupPosition).get(childPosition);
+      return getChildren(groupPosition).get(childPosition);
     } catch (Exception e) {
       return null;
     }
@@ -100,9 +100,17 @@ public abstract class AbstractExpandableListAdapter<T extends HasName> extends B
   @Override
   public int getChildrenCount(int groupPosition) {
     try {
-      return children.get(groupPosition).size();
+      return getChildren(groupPosition).size();
     } catch (Exception e) {
       return 0;
+    }
+  }
+
+  public List<? extends T> getChildren(int groupPosition) {
+    try {
+      return children.get(groupPosition);
+    } catch (Exception e) {
+      return null;
     }
   }
 
