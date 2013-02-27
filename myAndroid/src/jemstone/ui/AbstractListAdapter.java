@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter {
@@ -70,6 +71,19 @@ public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter
   @Override
   public long getItemId(int position) {
     return items.get(position).getId();
+  }
+  
+  public int getItemPosition(T item) {
+    return items.indexOf(item);
+  }
+  
+  public void scrollTo(ListView list, T item) {
+    if (item != null) {
+      int position = getItemPosition(item);
+      if (position >= 0) {
+        list.smoothScrollToPosition(position);
+      }
+    }
   }
 
   @Override

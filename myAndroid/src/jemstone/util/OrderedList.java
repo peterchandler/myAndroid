@@ -32,6 +32,10 @@ public class OrderedList<E> implements List<E>, Printable {
       sorted = true;
     }
   }
+  
+  public void setDirty() {
+    sorted = false;
+  }
 
   /**
    * @param arg0
