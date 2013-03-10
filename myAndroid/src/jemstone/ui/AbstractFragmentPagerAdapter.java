@@ -122,7 +122,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
     setActivityTitle(position);
     
-    activity.getActionBar().setSelectedNavigationItem(position);
+    try {
+      activity.getActionBar().setSelectedNavigationItem(position);
+    } catch (Exception e) {
+      // Ignore any issues with this
+    }
   }
 
   public void setActivityTitle(int position) {
