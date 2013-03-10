@@ -31,6 +31,14 @@ public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter
     itemSelectionHandler = new ItemSelectionHandler<T>();
   }
 
+  public LayoutInflater getInflater() {
+    return inflater;
+  }
+
+  public int getLayoutId() {
+    return layoutId;
+  }
+
   public ItemSelectionHandler<T> getItemSelectionHandler() {
     return itemSelectionHandler;
   }

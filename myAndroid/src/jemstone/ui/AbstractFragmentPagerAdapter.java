@@ -5,11 +5,14 @@ import java.util.List;
 
 import jemstone.model.HasName;
 import jemstone.util.log.Logger;
+import android.app.ActionBar;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends AbstractFragment<?,?,?>> 
-              extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+              extends FragmentPagerAdapter 
+           implements ViewPager.OnPageChangeListener,
+                      ActionBar.OnNavigationListener {
   
   protected final Logger log = Logger.getLogger(getClass());
   
@@ -38,6 +41,10 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     ensureCapacity(entities.size());
   }
   
+  public List<T> getEntities() {
+    return entities;
+  }
+
   public T get(int index) {
     return entities.get(index);
   }
@@ -114,6 +121,8 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
               (fragment == null) ? null : fragment.getClass().getSimpleName(), get(position));
 
     setActivityTitle(position);
+    
+    activity.getActionBar().setSelectedNavigationItem(position);
   }
 
   public void setActivityTitle(int position) {
@@ -130,5 +139,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
   @Override
   public void onPageScrollStateChanged(int state) {
+  }
+  
+  @Override
+  public boolean onNavigationItemSelected(int position, long id) {
+    setCurrentPosition(position);
+    return true;
   }
 }
