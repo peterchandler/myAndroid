@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class AbstractActionBarDropdownAdapter<T extends HasName> extends AbstractListAdapter<T> {
   private CharSequence title;
+  private CharSequence subtitle;
   
   public AbstractActionBarDropdownAdapter(Context context, CharSequence title, List<T> items) {
     super(context, items, R.layout.actionbar_dropdown_item);
@@ -24,6 +25,14 @@ public class AbstractActionBarDropdownAdapter<T extends HasName> extends Abstrac
 
   public void setTitle(CharSequence title) {
     this.title = title;
+  }
+
+  public CharSequence getSubtitle() {
+    return subtitle;
+  }
+
+  public void setSubtitle(CharSequence subtitle) {
+    this.subtitle = subtitle;
   }
 
   @Override

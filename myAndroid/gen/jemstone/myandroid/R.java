@@ -151,6 +151,7 @@ public final class R {
         public static int wheel_val=0x7f02006f;
     }
     public static final class id {
+        public static int RelativeLayout1=0x7f06000f;
         public static int accept=0x7f060007;
         public static int add=0x7f060004;
         public static int amount=0x7f06000d;
@@ -158,23 +159,23 @@ public final class R {
         public static int copy=0x7f060002;
         public static int count=0x7f060000;
         public static int cut=0x7f060001;
-        public static int date_edit=0x7f060012;
-        public static int date_edit_dialog=0x7f060011;
-        public static int day=0x7f060013;
+        public static int date_edit=0x7f060013;
+        public static int date_edit_dialog=0x7f060012;
+        public static int day=0x7f060014;
         public static int delete=0x7f060005;
         public static int description=0x7f06000c;
-        public static int dialog_accept=0x7f060017;
-        public static int dialog_cancel=0x7f060016;
-        public static int month=0x7f060014;
+        public static int dialog_accept=0x7f060018;
+        public static int dialog_cancel=0x7f060017;
+        public static int month=0x7f060015;
         public static int move=0x7f060006;
         public static int name=0x7f06000b;
         public static int ok=0x7f060009;
         public static int paste=0x7f060003;
         public static int selectCheckBox=0x7f06000e;
-        public static int subtitle=0x7f060010;
-        public static int title=0x7f06000f;
+        public static int subtitle=0x7f060011;
+        public static int title=0x7f060010;
         public static int viewpager=0x7f06000a;
-        public static int year=0x7f060015;
+        public static int year=0x7f060016;
     }
     public static final class layout {
         public static int actionbar_dropdown_item=0x7f030000;

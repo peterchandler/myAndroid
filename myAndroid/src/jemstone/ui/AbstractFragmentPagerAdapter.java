@@ -31,6 +31,8 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   /** The position of the currently selected fragment */
   private int currentPosition = -1;
 
+  private AbstractActionBarDropdownAdapter<T> actionBarDropdownAdapter;
+
   public AbstractFragmentPagerAdapter(AbstractActivity<?,?> activity, List<T> entities, BaseViewPager viewPager) {
     super(activity.getSupportFragmentManager());
     this.activity = activity;
@@ -122,10 +124,9 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
     setActivityTitle(position);
     
-    try {
-      activity.getActionBar().setSelectedNavigationItem(position);
-    } catch (Exception e) {
-      // Ignore any issues with this
+    if (actionBarDropdownAdapter != null) {
+      ActionBar actionBar = activity.getActionBar();
+      actionBar.setSelectedNavigationItem(position);
     }
   }
 
@@ -149,5 +150,9 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   public boolean onNavigationItemSelected(int position, long id) {
     setCurrentPosition(position);
     return true;
+  }
+
+  public void setActionBarDropdownAdapter(AbstractActionBarDropdownAdapter<T> actionBarDropdownAdapter) {
+    this.actionBarDropdownAdapter = actionBarDropdownAdapter;
   }
 }
