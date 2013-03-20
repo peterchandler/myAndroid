@@ -5,34 +5,29 @@ import java.util.List;
 import jemstone.model.HasDescription;
 import jemstone.model.HasName;
 import jemstone.myandroid.R;
+import android.app.ActionBar;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class AbstractActionBarDropdownAdapter<T extends HasName> extends AbstractListAdapter<T> {
+public abstract class AbstractActionBarDropdownAdapter<T extends HasName> 
+              extends AbstractListAdapter<T>
+           implements ActionBar.OnNavigationListener {
   private CharSequence title;
-  private CharSequence subtitle;
   
   public AbstractActionBarDropdownAdapter(Context context, CharSequence title, List<T> items) {
     super(context, items, R.layout.actionbar_dropdown_item);
     this.title = title;
   }
 
-  public CharSequence getTitle() {
+  public CharSequence getTitle(int position) {
     return title;
   }
 
-  public void setTitle(CharSequence title) {
-    this.title = title;
-  }
-
-  public CharSequence getSubtitle() {
-    return subtitle;
-  }
-
-  public void setSubtitle(CharSequence subtitle) {
-    this.subtitle = subtitle;
+  public CharSequence getSubtitle(int position) {
+    final T item = getItem(position);
+    return (item != null) ? item.getName() : null;
   }
 
   @Override
@@ -42,16 +37,14 @@ public class AbstractActionBarDropdownAdapter<T extends HasName> extends Abstrac
       view = getInflater().inflate(R.layout.actionbar_dropdown_title, parent, false);
     }
   
-    final T item = getItem(position);
-  
     TextView title = (TextView)view.findViewById(R.id.title);
     if (title != null) {
-      title.setText(this.title);
+      title.setText(getTitle(position));
     }
   
     TextView subtitle = (TextView)view.findViewById(R.id.subtitle);
     if (subtitle != null) {
-      subtitle.setText(item.getName());
+      subtitle.setText(getSubtitle(position));
     }
     
     return view;

@@ -11,8 +11,7 @@ import android.support.v4.view.ViewPager;
 
 public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends AbstractFragment<?,?,?>> 
               extends FragmentPagerAdapter 
-           implements ViewPager.OnPageChangeListener,
-                      ActionBar.OnNavigationListener {
+           implements ViewPager.OnPageChangeListener {
   
   protected final Logger log = Logger.getLogger(getClass());
   
@@ -116,6 +115,14 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     return null;
   }
 
+  public CharSequence getPageSubtitle(int position) {
+    try {
+      return get(position).getName();
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
   @Override
   public void onPageSelected(int position) {
     final F fragment = getFragment(position);
@@ -130,12 +137,16 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     }
   }
 
-  public void setActivityTitle(int position) {
+  private void setActivityTitle(int position) {
     final CharSequence title = getPageTitle(position);
     if (title != null) {
       activity.setTitle(title);
     }
-    activity.setSubTitle(get(position).getName());
+    
+    final CharSequence subtitle = getPageSubtitle(position);
+    if (subtitle != null) {
+      activity.setSubtitle(subtitle);
+    }
   }
 
   @Override
@@ -144,12 +155,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
   @Override
   public void onPageScrollStateChanged(int state) {
-  }
-  
-  @Override
-  public boolean onNavigationItemSelected(int position, long id) {
-    setCurrentPosition(position);
-    return true;
   }
 
   public void setActionBarDropdownAdapter(AbstractActionBarDropdownAdapter<T> actionBarDropdownAdapter) {

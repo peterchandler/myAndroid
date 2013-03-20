@@ -2,6 +2,7 @@ package jemstone.ui;
 
 import jemstone.model.HasName;
 import jemstone.util.log.Logger;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -150,13 +151,13 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     setTitle(getString(stringId, args));
   }
 
-  public void setSubTitle(CharSequence subtitle) {
+  public void setSubtitle(CharSequence subtitle) {
     log.debug("setSubTitle: [subtitle=%s]", subtitle);
     getActionBar().setSubtitle(subtitle);
   }
 
-  public void setSubTitle(String format, Object ... args) {
-    setSubTitle(String.format(format, args));
+  public void setSubtitle(String format, Object ... args) {
+    setSubtitle(String.format(format, args));
   }
 
   public int getWindowRotation() {
@@ -187,6 +188,13 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
       InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
       inputManager.showSoftInput(currentFocus, InputMethodManager.SHOW_FORCED);
     }
+  }
+  
+  public void setShowActionBarDropDown(AbstractActionBarDropdownAdapter<? extends HasName> actionBarAdapter) {
+    ActionBar actionBar = getActionBar();
+    actionBar.setDisplayShowTitleEnabled(false);
+    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+    actionBar.setListNavigationCallbacks(actionBarAdapter, actionBarAdapter);
   }
 
   public void navigateToGooglePlay(String packageName) {

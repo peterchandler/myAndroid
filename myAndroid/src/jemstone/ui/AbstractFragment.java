@@ -180,11 +180,11 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     activity.setTitle(stringId, args);
   }
 
-  public void setSubTitle(CharSequence subtitle) {
-    activity.setSubTitle(subtitle);
+  public void setSubtitle(CharSequence subtitle) {
+    activity.setSubtitle(subtitle);
   }
 
-  public void setSubTitle(String format, Object ... args) {
-    activity.setSubTitle(format, args);
+  public void setSubtitle(String format, Object ... args) {
+    activity.setSubtitle(format, args);
   }
 }
