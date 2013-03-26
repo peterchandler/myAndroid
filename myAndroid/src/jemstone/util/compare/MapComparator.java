@@ -6,7 +6,8 @@ public class MapComparator<K,V> extends BaseComparator<Map<K,V>> {
   private final String name;
   private final BaseComparator<? super V> itemComparator;
 
-  public MapComparator(String name, BaseComparator<? super V> itemComparator) {
+  public MapComparator(boolean compareId, String name, BaseComparator<? super V> itemComparator) {
+    super(compareId);
     this.name = name;
     this.itemComparator = itemComparator;
     addChild(itemComparator);

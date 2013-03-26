@@ -7,7 +7,13 @@ import java.util.List;
 import jemstone.model.HasId;
 
 public abstract class BaseComparator<E> {
+  protected final boolean compareId;
+  
   private List<BaseComparator<?>> children = new ArrayList<BaseComparator<?>>();
+
+  public BaseComparator(boolean compareId) {
+    this.compareId = compareId;
+  }
 
   public abstract boolean equals(E o1, E o2) throws CompareException;
 
@@ -122,7 +128,7 @@ public abstract class BaseComparator<E> {
   }
 
   public boolean equals(String name, HasId o1, HasId o2) throws CompareException {
-    if (!checkNull(name, o1, o2)) {
+    if (compareId && !checkNull(name, o1, o2)) {
       return equals(name, o1.getId(), o2.getId());
     }
     return true;

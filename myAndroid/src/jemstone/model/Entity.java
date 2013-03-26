@@ -1,12 +1,16 @@
 package jemstone.model;
 
-import jemstone.util.Printer;
 import jemstone.util.Printable;
+import jemstone.util.Printer;
 
 public abstract class Entity implements HasId, Printable {
   private int id;
 
   protected Entity(int id) {
+    this.id = id;
+  }
+
+  protected void setId(int id) {
     this.id = id;
   }
 

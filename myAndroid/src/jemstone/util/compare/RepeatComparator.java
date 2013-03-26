@@ -3,6 +3,10 @@ package jemstone.util.compare;
 import jemstone.util.Repeat;
 
 public class RepeatComparator extends BaseComparator<Repeat> {
+  public RepeatComparator(boolean compareId) {
+    super(compareId);
+  }
+
   @Override
   public boolean equals(Repeat o1, Repeat o2) throws CompareException {
     if (checkNull("Repeat", o1, o2)) {
