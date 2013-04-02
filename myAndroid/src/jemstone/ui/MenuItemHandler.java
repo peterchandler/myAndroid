@@ -13,6 +13,9 @@ public interface MenuItemHandler<AM extends ActivityManager, AP extends Activity
   public boolean canCancel();
   public boolean canConfig();
   public boolean canReload();
+  public boolean canCut();
+  public boolean canCopy();
+  public boolean canPaste();
   
   public void onUndo();
   public void onRedo();
@@ -21,6 +24,9 @@ public interface MenuItemHandler<AM extends ActivityManager, AP extends Activity
   public void onAccept();
   public void onCancel();
   public void onReload();
+  public void onCut();
+  public void onCopy();
+  public void onPaste();
 
   public void onRefresh();
   public void onCreateMenu(Menu menu, MenuInflater inflater, AP parameters);
