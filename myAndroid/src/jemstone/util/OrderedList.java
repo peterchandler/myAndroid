@@ -15,7 +15,7 @@ public class OrderedList<E> implements List<E>, Printable {
 
   private boolean sorted = true;
 
-  private Comparator<? super E> comparator;
+  protected Comparator<? super E> comparator;
 
   /**
    * Create a new ordered list with a {@link Comparator} that will be used to sort the items

@@ -54,13 +54,16 @@ public class DateOrderedList<E extends HasDate> extends OrderedList<E> {
   }
 
   public DateOrderedList<E> findBetween(Date from, Date to) {
-    DateOrderedList<E> list = new DateOrderedList<E>();
+    DateOrderedList<E> list = new DateOrderedList<E>(comparator);
     for (E item : this) {
-      if (item.getDate().after(to)) {
-        break;
-      }
-      if (item.getDate().after(from)) {
-        list.add(item);
+      Date date = item.getDate();
+      if (date != null) {
+        if (to != null && date.after(to)) {
+          break;
+        }
+        if (from == null || date.after(from)) {
+          list.add(item);
+        }
       }
     }
 
