@@ -1,6 +1,5 @@
 package jemstone.ui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jemstone.model.HasName;
@@ -21,9 +20,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   /** A list of entities to be displayed on each fragment (or page of the view pager) */
   private final List<T> entities;
   
-  /** The list of fragments managed by the view pager */
-  private final List<F> fragments;
-  
   /** The view pager that this adapter is managing */
   private final BaseViewPager viewPager;
   
@@ -37,9 +33,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     this.activity = activity;
     this.entities = entities;
     this.viewPager = viewPager;
-    
-    this.fragments = new ArrayList<F>(entities.size());
-    ensureCapacity(entities.size());
   }
   
   public List<T> getEntities() {
@@ -62,7 +55,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   @Override
   public F getItem(int position) {
     F fragment = createFragment(position);
-    setFragment(position, fragment);
     
     // Force title update
     if (position == currentPosition) {
@@ -72,15 +64,9 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     return fragment;
   }
 
-  private void setFragment(int position, F fragment) {
-    ensureCapacity(position+1);
-    fragments.set(position, fragment);
-  }
-
-  private void ensureCapacity(int size) {
-    for (int i = fragments.size();  i < size;  i++) {
-      fragments.add(null);
-    }
+  @Override
+  public long getItemId(int position) {
+    return entities.get(position).getId();
   }
 
   public int getCurrentPosition() {
@@ -104,10 +90,6 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
     setCurrentPosition(position);
   }
 
-  public F getFragment(int position) {
-    return fragments.get(position);
-  }
-  
   protected abstract F createFragment(int position);
   
   @Override
@@ -125,9 +107,9 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
   @Override
   public void onPageSelected(int position) {
-    final F fragment = getFragment(position);
-    log.debug("onPageSelected: [page=%s, fragment=%s] [%s]", position, 
-              (fragment == null) ? null : fragment.getClass().getSimpleName(), get(position));
+//    final F fragment = getFragment(position);
+//    log.trace("onPageSelected: [page=%s, fragment=%s] [%s]", position, 
+//              (fragment == null) ? null : fragment.getClass().getSimpleName(), get(position));
 
     setActivityTitle(position);
     
