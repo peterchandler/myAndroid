@@ -105,6 +105,7 @@ public class FileManager {
 
       log.info("Load finished in %s: %s", timer, file);
     }
+    
     // Notify listener
     if (listener != null) {
       listener.onPostLoad();
@@ -136,6 +137,9 @@ public class FileManager {
         // Rename the new file to the one we want
         createBackup(file);
         newFile.renameTo(file);
+        
+        // Mark entity manager as not modified
+        manager.setModified(false);
 
         log.info("Save finished in %s: %s", timer, file);
       }
