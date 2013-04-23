@@ -4,6 +4,10 @@ public class Timer {
   private long start;
 
   public Timer() {
+    start();
+  }
+  
+  public void start() {
     start = System.currentTimeMillis();
   }
 

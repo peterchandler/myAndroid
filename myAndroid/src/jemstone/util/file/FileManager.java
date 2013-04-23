@@ -102,14 +102,14 @@ public class FileManager {
     if (reader != null) {
       loadDao.load(reader);
       reader.close();
-
-      log.info("Load finished in %s: %s", timer, file);
     }
     
     // Notify listener
     if (listener != null) {
       listener.onPostLoad();
     }
+
+    log.info("Load finished in %s: %s", timer, file);
   }
 
   @SuppressWarnings("unchecked")
