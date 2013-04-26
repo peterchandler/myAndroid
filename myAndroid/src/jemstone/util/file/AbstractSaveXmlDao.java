@@ -118,6 +118,12 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
     serializer.endTag(NAMESPACE, tag);
   }
 
+  protected void write(String tag, int value) throws IllegalArgumentException, IllegalStateException, IOException {
+    serializer.startTag(NAMESPACE, tag);
+    serializer.text(Integer.toString(value));
+    serializer.endTag(NAMESPACE, tag);
+  }
+
   protected void write(String tag, long value) throws IllegalArgumentException, IllegalStateException, IOException {
     serializer.startTag(NAMESPACE, tag);
     serializer.text(Long.toString(value));
@@ -130,7 +136,15 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
     serializer.endTag(NAMESPACE, tag);
   }
 
+  protected void write(String tag, HasId item) throws IllegalArgumentException, IllegalStateException, IOException {
+    if (item != null) {
+      write(tag, item.getId());
+    }
+  }
+
   protected void write(HasId item) throws IllegalArgumentException, IllegalStateException, IOException {
-    serializer.attribute(null, ID, Integer.toString(item.getId()));
+    if (item != null) {
+      serializer.attribute(null, ID, Integer.toString(item.getId()));
+    }
   }
 }
