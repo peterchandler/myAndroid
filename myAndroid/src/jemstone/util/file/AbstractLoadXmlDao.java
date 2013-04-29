@@ -99,6 +99,8 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
           if (parser != null && tag != null) {
             try {
               parser.parse(tag, value);
+            } catch (IllegalArgumentException e) {
+              // thrown if tag is not recognised, ignore
             } catch (Exception e) {
               final String className = parser.getClass().getSimpleName();
               throw new DaoException(e, "Error in %s.parse: [tag=%s, value=%s]", className, tag, value);

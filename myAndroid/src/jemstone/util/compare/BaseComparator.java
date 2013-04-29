@@ -39,6 +39,10 @@ public abstract class BaseComparator<E> {
     children.add(child);
   }
 
+  protected boolean checkNull(Enum<?> field, Object o1, Object o2) throws CompareException {
+    return checkNull(field.name(), o1, o2);
+  }
+
   protected boolean checkNull(String name, Object o1, Object o2) throws CompareException {
     if (o1 == null) {
       if (o2 != null) {
@@ -51,6 +55,10 @@ public abstract class BaseComparator<E> {
     return false;
   }
 
+  protected boolean equals(Enum<?> field, int n1, int n2) throws CompareException {
+    return equals(field.name(), n1, n2);
+  }
+
   protected boolean equals(String name, int n1, int n2) throws CompareException {
     if (n1 != n2) {
       throw new CompareException("Values for '%s' do not match: Expected <%s> but was <%s>", name, n1, n2);
@@ -58,11 +66,19 @@ public abstract class BaseComparator<E> {
     return true;
   }
 
+  protected boolean equals(Enum<?> field, long n1, long n2) throws CompareException {
+    return equals(field.name(), n1, n2);
+  }
+
   protected boolean equals(String name, long n1, long n2) throws CompareException {
     if (n1 != n2) {
       throw new CompareException("Values for '%s' do not match: Expected <%s> but was <%s>", name, n1, n2);
     }
     return true;
+  }
+
+  protected boolean equals(Enum<?> field, double n1, double n2) throws CompareException {
+    return equals(field.name(), n1, n2);
   }
 
   protected boolean equals(String name, double n1, double n2) throws CompareException {
@@ -82,11 +98,19 @@ public abstract class BaseComparator<E> {
     throw new CompareException("Values for '%s' do not match: Expected <%s> but was <%s>", name, n1, n2);
   }
 
+  protected boolean equals(Enum<?> field, boolean b1, boolean b2) throws CompareException {
+    return equals(field.name(), b1, b2);
+  }
+
   protected boolean equals(String name, boolean b1, boolean b2) throws CompareException {
     if (b1 != b2) {
       throw new CompareException("Values for '%s' do not match: Expected <%s> but was <%s>", name, b1, b2);
     }
     return true;
+  }
+
+  protected boolean equals(Enum<?> field, Date o1, Date o2) throws CompareException {
+    return equals(field.name(), o1, o2);
   }
 
   protected boolean equals(String name, Date o1, Date o2) throws CompareException {
@@ -96,12 +120,20 @@ public abstract class BaseComparator<E> {
     return true;
   }
 
+  protected boolean equals(Enum<?> field, String o1, String o2) throws CompareException {
+    return equals(field.name(), o1, o2);
+  }
+
   protected boolean equals(String name, Object o1, Object o2) throws CompareException {
     if (!checkNull(name, o1, o2) && !o1.equals(o2)) {
       throw new CompareException("%s objects for '%s' do not match: Expected <%s> but was <%s>",
                                  getClassName(o1), name, o1, o2);
     }
     return true;
+  }
+
+  protected boolean equals(Enum<?> field, int[] array1, int[] array2) throws CompareException {
+    return equals(field.name(), array1, array2);
   }
 
   public boolean equals(String name, int[] array1, int[] array2) throws CompareException {
@@ -125,6 +157,10 @@ public abstract class BaseComparator<E> {
       }
     }
     return result;
+  }
+
+  protected boolean equals(Enum<?> field, HasId o1, HasId o2) throws CompareException {
+    return equals(field.name(), o1, o2);
   }
 
   public boolean equals(String name, HasId o1, HasId o2) throws CompareException {

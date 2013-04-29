@@ -95,12 +95,28 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
 
   protected abstract void saveContent(T manager) throws IllegalArgumentException, IllegalStateException, IOException;
 
+  protected void startTag(Enum<?> tag) throws IllegalArgumentException, IllegalStateException, IOException {
+    serializer.startTag(NAMESPACE, tag.name());
+  }
+
+  protected void endTag(Enum<?> tag) throws IllegalArgumentException, IllegalStateException, IOException {
+    serializer.endTag(NAMESPACE, tag.name());
+  }
+
+  protected void write(Enum<?> tag, String value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
+  }
+
   protected void write(String tag, String value) throws IllegalArgumentException, IllegalStateException, IOException {
     if (value != null) {
       serializer.startTag(NAMESPACE, tag);
       serializer.text(value);
       serializer.endTag(NAMESPACE, tag);
     }
+  }
+
+  protected void write(Enum<?> tag, Date value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
   }
 
   protected void write(String tag, Date date) throws IllegalArgumentException, IllegalStateException, IOException {
@@ -112,10 +128,18 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
     }
   }
 
+  protected void write(Enum<?> tag, boolean value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
+  }
+
   protected void write(String tag, boolean value) throws IllegalArgumentException, IllegalStateException, IOException {
     serializer.startTag(NAMESPACE, tag);
     serializer.text(value ? "true" : "false");
     serializer.endTag(NAMESPACE, tag);
+  }
+
+  protected void write(Enum<?> tag, int value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
   }
 
   protected void write(String tag, int value) throws IllegalArgumentException, IllegalStateException, IOException {
@@ -124,16 +148,28 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
     serializer.endTag(NAMESPACE, tag);
   }
 
+  protected void write(Enum<?> tag, long value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
+  }
+
   protected void write(String tag, long value) throws IllegalArgumentException, IllegalStateException, IOException {
     serializer.startTag(NAMESPACE, tag);
     serializer.text(Long.toString(value));
     serializer.endTag(NAMESPACE, tag);
   }
 
+  protected void write(Enum<?> tag, double value) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), value);
+  }
+
   protected void write(String tag, double value) throws IllegalArgumentException, IllegalStateException, IOException {
     serializer.startTag(NAMESPACE, tag);
     serializer.text(Double.toString(value));
     serializer.endTag(NAMESPACE, tag);
+  }
+
+  protected void write(Enum<?> tag, HasId item) throws IllegalArgumentException, IllegalStateException, IOException {
+    write(tag.toString(), item);
   }
 
   protected void write(String tag, HasId item) throws IllegalArgumentException, IllegalStateException, IOException {
