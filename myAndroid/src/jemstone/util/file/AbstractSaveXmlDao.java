@@ -163,9 +163,11 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
   }
 
   protected void write(String tag, double value) throws IllegalArgumentException, IllegalStateException, IOException {
-    serializer.startTag(NAMESPACE, tag);
-    serializer.text(Double.toString(value));
-    serializer.endTag(NAMESPACE, tag);
+    if (!Double.isNaN(value)) {
+      serializer.startTag(NAMESPACE, tag);
+      serializer.text(Double.toString(value));
+      serializer.endTag(NAMESPACE, tag);
+    }
   }
 
   protected void write(Enum<?> tag, HasId item) throws IllegalArgumentException, IllegalStateException, IOException {

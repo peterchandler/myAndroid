@@ -76,10 +76,15 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
       switch (eventType) {
         case XmlPullParser.START_TAG:
           tag = xpp.getName();
-          EntityParser p = parsers.get(tag);
+          EntityParser p = getParser(tag, parentTag, parser);
           if (p != null) {
             int id = parseId();
-            p.create(id);
+            try {
+              p.create(id);
+            } catch (Exception e) {
+              final String className = parser.getClass().getSimpleName();
+              throw new DaoException(e, "Error in %s.parse: [tag=%s, id=%s]", className, tag, id);
+            }
 
             xpp.next();
             parse(tag, p);
@@ -112,6 +117,10 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
           return;
       }
     }
+  }
+
+  protected EntityParser getParser(String tag, String parentTag, EntityParser parentParser) {
+    return parsers.get(tag);
   }
 
   protected int parseId() {
