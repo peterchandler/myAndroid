@@ -3,4 +3,5 @@
   <dimen name="text_paddingLeft">8dp</dimen>
   <dimen name="text_paddingRight">3dp</dimen>
   <dimen name="dialog_header_height">40dp</dimen>
+  <dimen name="group_indicator_width">30dp</dimen>
 </resources>

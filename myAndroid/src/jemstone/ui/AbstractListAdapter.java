@@ -10,6 +10,7 @@ import jemstone.util.Formatter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
@@ -21,12 +22,19 @@ public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter
   private final List<T> items;
   private final int layoutId;
   private final ItemSelectionHandler<T> itemSelectionHandler;
+  private final OnClickListener onNextClickListener;
   private final Formatter formatter = new Formatter();
 
   public AbstractListAdapter(Context context, List<T> items, int layoutId) {
+    this(context, items, layoutId, null);
+  }
+  
+  public AbstractListAdapter(Context context, List<T> items, int layoutId, View.OnClickListener onNextClickListener) {
     super();
     this.items = items;
     this.layoutId = layoutId;
+    this.onNextClickListener = onNextClickListener;
+
     inflater = LayoutInflater.from(context);
     itemSelectionHandler = new ItemSelectionHandler<T>();
   }
@@ -126,7 +134,17 @@ public abstract class AbstractListAdapter<T extends HasName> extends BaseAdapter
     // Initialize the selection checkbox
     CheckBox checkBox = (CheckBox) view.findViewById(R.id.selectCheckBox);
     getItemSelectionHandler().initCheckBox(checkBox, isSelectionMode() ? item : null);
-  
+    
+    // Get Goto button
+    if (onNextClickListener != null) {
+      View next = view.findViewById(R.id.next);
+      if (next != null) {
+        next.setOnClickListener(onNextClickListener);
+        next.setTag(getItem(position));
+        next.setVisibility(View.VISIBLE);
+      }
+    }
+
     return view;
   }
 }

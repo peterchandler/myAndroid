@@ -32,6 +32,7 @@ public final class R {
     }
     public static final class dimen {
         public static int dialog_header_height=0x7f050003;
+        public static int group_indicator_width=0x7f050004;
         public static int text_paddingLeft=0x7f050001;
         public static int text_paddingRight=0x7f050002;
         public static int text_paddingTop=0x7f050000;
@@ -168,6 +169,7 @@ public final class R {
         public static int month=0x7f060014;
         public static int move=0x7f060006;
         public static int name=0x7f06000b;
+        public static int next=0x7f060018;
         public static int ok=0x7f060009;
         public static int paste=0x7f060003;
         public static int selectCheckBox=0x7f06000e;
@@ -183,6 +185,11 @@ public final class R {
         public static int date_edit_layout=0x7f030003;
         public static int delete_button=0x7f030004;
         public static int dialog_buttons=0x7f030005;
+        public static int goto_button=0x7f030006;
+        public static int list_dialog=0x7f030007;
+        public static int list_fragment=0x7f030008;
+        public static int list_item_with_next_button=0x7f030009;
+        public static int select_checkbox=0x7f03000a;
     }
     public static final class string {
         public static int accept=0x7f07000e;
