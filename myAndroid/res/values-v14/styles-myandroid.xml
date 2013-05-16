@@ -1,3 +1,10 @@
 <resources>
-  <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar"/>
+  <!-- Use Holo.Light with dark action bar -->
+  <style name="MyTheme.Light.DarkActionBar" parent="android:Theme.Holo.Light.DarkActionBar">
+    <item name="android:editTextStyle">@style/EditText</item>
+    <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
+    
+    <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium.Inverse</item>
+    <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small.Inverse</item>
+  </style>
 </resources>

@@ -12,7 +12,7 @@
     android:layout_marginBottom="-4dip"
     android:ellipsize="end"
     android:singleLine="true"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    android:textAppearance="?actionBarTitleTextStyle"/>
   <TextView
     android:id="@+id/subtitle"
     android:layout_width="match_parent"
@@ -21,5 +21,5 @@
     android:layout_below="@id/title"
     android:ellipsize="end"
     android:singleLine="true"
-    android:textAppearance="?android:attr/textAppearanceSmall"/>
+    android:textAppearance="?actionBarSubtitleTextStyle"/>
 </RelativeLayout>

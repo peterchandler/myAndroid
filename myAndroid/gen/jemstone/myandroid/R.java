@@ -14,6 +14,16 @@ public final class R {
         public static int repeat_monthly=0x7f080001;
     }
     public static final class attr {
+        /**  Specifies a style to use for subtitle text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int actionBarSubtitleTextStyle=0x7f010001;
+        /**  Specifies a style to use for title text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int actionBarTitleTextStyle=0x7f010000;
     }
     public static final class color {
         public static int blueLine=0x7f040005;
@@ -228,40 +238,49 @@ public final class R {
         public static int undo=0x7f070015;
     }
     public static final class style {
-        public static int AppTheme=0x7f090000;
-        public static int DialogButton=0x7f09000e;
-        public static int EditLabel=0x7f09000c;
-        public static int EditSection=0x7f09000b;
+        public static int DialogButton=0x7f090010;
+        public static int EditLabel=0x7f09000e;
+        public static int EditSection=0x7f09000d;
         /** 
     <item name="android:textColor">?android:attr/textColorPrimary</item>
     <item name="android:background">@drawable/edit_text_holo_dark</item>
     
          */
-        public static int EditText=0x7f09000d;
-        public static int HLine=0x7f090015;
-        public static int HLine_Blue=0x7f090016;
-        public static int ListGroup=0x7f090011;
-        public static int ListGroupText=0x7f090012;
-        public static int ListSeparator=0x7f090013;
-        public static int MyExpandableListView=0x7f09000f;
+        public static int EditText=0x7f09000f;
+        public static int HLine=0x7f090017;
+        public static int HLine_Blue=0x7f090018;
+        public static int ListGroup=0x7f090013;
+        public static int ListGroupText=0x7f090014;
+        public static int ListSeparator=0x7f090015;
+        public static int MyExpandableListView=0x7f090011;
         /** 
     <item name="android:divider">@color/blueLine</item>
     <item name="android:childDivider">@color/childDivider</item>
     
          */
-        public static int MyExpandableListView2=0x7f090010;
-        public static int SectionSeparator=0x7f090014;
-        public static int SelectableSection=0x7f090018;
-        public static int TextLarge=0x7f090001;
-        public static int TextMedium=0x7f090002;
-        public static int TextMedium_Blue=0x7f090005;
-        public static int TextMedium_Dark=0x7f090004;
-        public static int TextMedium_Dark_Selectable=0x7f090007;
-        public static int TextMedium_Gray=0x7f090003;
-        public static int TextMedium_Selectable=0x7f090006;
-        public static int TextSmall=0x7f090008;
-        public static int TextSmall_Blue=0x7f09000a;
-        public static int TextSmall_Dark=0x7f090009;
-        public static int VLine=0x7f090017;
+        public static int MyExpandableListView2=0x7f090012;
+        /**  Use Holo 
+         */
+        public static int MyTheme=0x7f090000;
+        /**  Use Holo.Light 
+         */
+        public static int MyTheme_Light=0x7f090001;
+        /**  Use Holo.Light 
+ Use Holo.Light with dark action bar 
+         */
+        public static int MyTheme_Light_DarkActionBar=0x7f090002;
+        public static int SectionSeparator=0x7f090016;
+        public static int SelectableSection=0x7f09001a;
+        public static int TextLarge=0x7f090003;
+        public static int TextMedium=0x7f090004;
+        public static int TextMedium_Blue=0x7f090007;
+        public static int TextMedium_Dark=0x7f090006;
+        public static int TextMedium_Dark_Selectable=0x7f090009;
+        public static int TextMedium_Gray=0x7f090005;
+        public static int TextMedium_Selectable=0x7f090008;
+        public static int TextSmall=0x7f09000a;
+        public static int TextSmall_Blue=0x7f09000c;
+        public static int TextSmall_Dark=0x7f09000b;
+        public static int VLine=0x7f090019;
     }
 }

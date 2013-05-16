@@ -1,3 +1,25 @@
 <resources>
-  <style name="AppTheme" parent="android:Theme.Holo.Light"/>
+  <!-- Use Holo -->
+  <style name="MyTheme" parent="android:Theme.Holo">
+    <item name="android:editTextStyle">@style/EditText</item>
+    <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
+    <!-- 
+    <item name="navigationForward">@drawable/navigation_forward_holo_dark</item>
+     -->
+    <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium</item>
+    <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small</item>
+  </style>
+  
+  <!-- Use Holo.Light -->
+  <style name="MyTheme.Light" parent="android:Theme.Holo.Light">
+    <item name="android:editTextStyle">@style/EditText</item>
+    <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
+    
+    <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium.Inverse</item>
+    <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small.Inverse</item>
+  </style>
+  
+  <!-- Use Holo.Light -->
+  <style name="MyTheme.Light.DarkActionBar" parent="MyTheme.Light">
+  </style>
 </resources>

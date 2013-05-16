@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Specifies a style to use for title text. -->
+  <attr name="actionBarTitleTextStyle" format="reference"/>
+  <!-- Specifies a style to use for subtitle text. -->
+  <attr name="actionBarSubtitleTextStyle" format="reference"/>
+</resources>

@@ -1,5 +1,7 @@
 <resources>
-  <style name="AppTheme" parent="android:Theme.Light"/>
+  <style name="MyTheme" parent="android:Theme"/>
+  <style name="MyTheme.Light" parent="android:Theme.Light"/>
+  
   <style name="TextLarge" parent="android:TextAppearance.Large">
   </style>
   <style name="TextMedium" parent="android:TextAppearance.Medium">

@@ -1,6 +1,7 @@
 package jemstone.ui;
 
 import jemstone.model.HasName;
+import jemstone.myandroid.R;
 import jemstone.util.log.Logger;
 import android.app.ActionBar;
 import android.content.Context;
@@ -86,6 +87,9 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     } else {
       setParameters(getIntent().getExtras());
     }
+    
+    // Set theme
+    setTheme(R.style.MyTheme_Light_DarkActionBar);
     
     //
     getActionBar().setDisplayHomeAsUpEnabled(!isHomeActivity());
