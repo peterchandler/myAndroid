@@ -4,7 +4,11 @@
     <item name="android:editTextStyle">@style/EditText</item>
     <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
     
+    <!-- Action Bar  -->
     <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium.Inverse</item>
     <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small.Inverse</item>
+    
+    <!-- Icons -->
+    <item name="iconGoto">@drawable/navigation_forward_holo_light</item>
   </style>
 </resources>

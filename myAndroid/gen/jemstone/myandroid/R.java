@@ -14,16 +14,21 @@ public final class R {
         public static int repeat_monthly=0x7f080001;
     }
     public static final class attr {
-        /**  Specifies a style to use for subtitle text. 
+        /**  Specifies a style to use for actionbar subtitle text. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarSubtitleTextStyle=0x7f010001;
-        /**  Specifies a style to use for title text. 
+        /**  Specifies a style to use for actionbar title text. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarTitleTextStyle=0x7f010000;
+        /**  Specifies a style to use for actionbar subtitle text. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconGoto=0x7f010002;
     }
     public static final class color {
         public static int blueLine=0x7f040005;
@@ -72,94 +77,44 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int content_redo_holo_light=0x7f020015;
         public static int content_undo_holo_dark=0x7f020016;
         public static int content_undo_holo_light=0x7f020017;
-        public static int edit_text=0x7f020018;
-        public static int edit_text_holo_dark=0x7f020019;
-        public static int edit_text_holo_light=0x7f02001a;
-        public static int edit_text_selector=0x7f02001b;
-        public static int expander_close_holo_dark=0x7f02001c;
-        public static int expander_close_holo_light=0x7f02001d;
-        public static int expander_group=0x7f02001e;
-        public static int expander_open_holo_dark=0x7f02001f;
-        public static int expander_open_holo_light=0x7f020020;
-        public static int header=0x7f020021;
-        public static int ic_ab_back_holo_dark=0x7f020022;
-        public static int ic_ab_back_holo_light=0x7f020023;
-        public static int myapp_icon=0x7f020024;
-        public static int navigation_accept_holo_dark=0x7f020025;
-        public static int navigation_accept_holo_light=0x7f020026;
-        public static int navigation_back_holo_dark=0x7f020027;
-        public static int navigation_back_holo_light=0x7f020028;
-        public static int navigation_cancel_holo_dark=0x7f020029;
-        public static int navigation_cancel_holo_light=0x7f02002a;
-        public static int navigation_collapse_holo_dark=0x7f02002b;
-        public static int navigation_collapse_holo_light=0x7f02002c;
-        public static int navigation_expand_holo_dark=0x7f02002d;
-        public static int navigation_expand_holo_light=0x7f02002e;
-        public static int navigation_forward_holo_dark=0x7f02002f;
-        public static int navigation_forward_holo_light=0x7f020030;
-        public static int navigation_next_item_holo_dark=0x7f020031;
-        public static int navigation_next_item_holo_light=0x7f020032;
-        public static int navigation_previous_item_holo_dark=0x7f020033;
-        public static int navigation_previous_item_holo_light=0x7f020034;
-        public static int navigation_refresh_holo_dark=0x7f020035;
-        public static int navigation_refresh_holo_light=0x7f020036;
-        public static int spinner_background_holo_dark=0x7f020037;
-        public static int spinner_background_holo_light=0x7f020038;
-        public static int spinner_default_holo_dark=0x7f020039;
-        public static int spinner_default_holo_light=0x7f02003a;
-        public static int spinner_disabled_holo_dark=0x7f02003b;
-        public static int spinner_disabled_holo_light=0x7f02003c;
-        public static int spinner_focused_holo_dark=0x7f02003d;
-        public static int spinner_focused_holo_light=0x7f02003e;
-        public static int spinner_pressed_holo_dark=0x7f02003f;
-        public static int spinner_pressed_holo_light=0x7f020040;
-        public static int textfield_activated_holo_dark=0x7f020041;
-        public static int textfield_activated_holo_light=0x7f020042;
-        public static int textfield_bg_activated_holo_dark=0x7f020043;
-        public static int textfield_bg_default_holo_dark=0x7f020044;
-        public static int textfield_bg_disabled_focused_holo_dark=0x7f020045;
-        public static int textfield_bg_disabled_holo_dark=0x7f020046;
-        public static int textfield_bg_focused_holo_dark=0x7f020047;
-        public static int textfield_default=0x7f020048;
-        public static int textfield_default_holo_dark=0x7f020049;
-        public static int textfield_default_holo_light=0x7f02004a;
-        public static int textfield_disabled=0x7f02004b;
-        public static int textfield_disabled_focused_holo_dark=0x7f02004c;
-        public static int textfield_disabled_focused_holo_light=0x7f02004d;
-        public static int textfield_disabled_holo_dark=0x7f02004e;
-        public static int textfield_disabled_holo_light=0x7f02004f;
-        public static int textfield_disabled_selected=0x7f020050;
-        public static int textfield_focused_holo_dark=0x7f020051;
-        public static int textfield_focused_holo_light=0x7f020052;
-        public static int textfield_longpress_holo=0x7f020053;
-        public static int textfield_multiline_activated_holo_dark=0x7f020054;
-        public static int textfield_multiline_activated_holo_light=0x7f020055;
-        public static int textfield_multiline_default_holo_dark=0x7f020056;
-        public static int textfield_multiline_default_holo_light=0x7f020057;
-        public static int textfield_multiline_disabled_focused_holo_dark=0x7f020058;
-        public static int textfield_multiline_disabled_focused_holo_light=0x7f020059;
-        public static int textfield_multiline_disabled_holo_dark=0x7f02005a;
-        public static int textfield_multiline_disabled_holo_light=0x7f02005b;
-        public static int textfield_multiline_focused_holo_dark=0x7f02005c;
-        public static int textfield_multiline_focused_holo_light=0x7f02005d;
-        public static int textfield_pressed_holo=0x7f02005e;
-        public static int textfield_search_default=0x7f02005f;
-        public static int textfield_search_default_holo_dark=0x7f020060;
-        public static int textfield_search_default_holo_light=0x7f020061;
-        public static int textfield_search_empty_default=0x7f020062;
-        public static int textfield_search_empty_pressed=0x7f020063;
-        public static int textfield_search_empty_selected=0x7f020064;
-        public static int textfield_search_pressed=0x7f020065;
-        public static int textfield_search_right_default_holo_dark=0x7f020066;
-        public static int textfield_search_right_default_holo_light=0x7f020067;
-        public static int textfield_search_right_selected_holo_dark=0x7f020068;
-        public static int textfield_search_right_selected_holo_light=0x7f020069;
-        public static int textfield_search_selected=0x7f02006a;
-        public static int textfield_search_selected_holo_dark=0x7f02006b;
-        public static int textfield_search_selected_holo_light=0x7f02006c;
-        public static int textfield_selected=0x7f02006d;
-        public static int wheel_bg=0x7f02006e;
-        public static int wheel_val=0x7f02006f;
+        public static int expander_close_holo_dark=0x7f020018;
+        public static int expander_close_holo_light=0x7f020019;
+        public static int expander_group=0x7f02001a;
+        public static int expander_open_holo_dark=0x7f02001b;
+        public static int expander_open_holo_light=0x7f02001c;
+        public static int ic_ab_back_holo_dark=0x7f02001d;
+        public static int ic_ab_back_holo_light=0x7f02001e;
+        public static int myapp_icon=0x7f02001f;
+        public static int navigation_accept_holo_dark=0x7f020020;
+        public static int navigation_accept_holo_light=0x7f020021;
+        public static int navigation_back_holo_dark=0x7f020022;
+        public static int navigation_back_holo_light=0x7f020023;
+        public static int navigation_cancel_holo_dark=0x7f020024;
+        public static int navigation_cancel_holo_light=0x7f020025;
+        public static int navigation_collapse_holo_dark=0x7f020026;
+        public static int navigation_collapse_holo_light=0x7f020027;
+        public static int navigation_expand_holo_dark=0x7f020028;
+        public static int navigation_expand_holo_light=0x7f020029;
+        public static int navigation_forward_holo_dark=0x7f02002a;
+        public static int navigation_forward_holo_light=0x7f02002b;
+        public static int navigation_next_item_holo_dark=0x7f02002c;
+        public static int navigation_next_item_holo_light=0x7f02002d;
+        public static int navigation_previous_item_holo_dark=0x7f02002e;
+        public static int navigation_previous_item_holo_light=0x7f02002f;
+        public static int navigation_refresh_holo_dark=0x7f020030;
+        public static int navigation_refresh_holo_light=0x7f020031;
+        public static int spinner_background_holo_dark=0x7f020032;
+        public static int spinner_background_holo_light=0x7f020033;
+        public static int spinner_default_holo_dark=0x7f020034;
+        public static int spinner_default_holo_light=0x7f020035;
+        public static int spinner_disabled_holo_dark=0x7f020036;
+        public static int spinner_disabled_holo_light=0x7f020037;
+        public static int spinner_focused_holo_dark=0x7f020038;
+        public static int spinner_focused_holo_light=0x7f020039;
+        public static int spinner_pressed_holo_dark=0x7f02003a;
+        public static int spinner_pressed_holo_light=0x7f02003b;
+        public static int wheel_bg=0x7f02003c;
+        public static int wheel_val=0x7f02003d;
     }
     public static final class id {
         public static int accept=0x7f060007;

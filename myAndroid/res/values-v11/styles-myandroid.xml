@@ -3,11 +3,13 @@
   <style name="MyTheme" parent="android:Theme.Holo">
     <item name="android:editTextStyle">@style/EditText</item>
     <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
-    <!-- 
-    <item name="navigationForward">@drawable/navigation_forward_holo_dark</item>
-     -->
+
+    <!-- Action Bar  -->
     <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium</item>
     <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small</item>
+    
+    <!-- Icons -->
+    <item name="iconGoto">@drawable/navigation_forward_holo_dark</item>
   </style>
   
   <!-- Use Holo.Light -->
@@ -15,8 +17,12 @@
     <item name="android:editTextStyle">@style/EditText</item>
     <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
     
+    <!-- Action Bar  -->
     <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium.Inverse</item>
     <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small.Inverse</item>
+    
+    <!-- Icons -->
+    <item name="iconGoto">@drawable/navigation_forward_holo_light</item>
   </style>
   
   <!-- Use Holo.Light -->
