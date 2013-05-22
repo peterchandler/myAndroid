@@ -50,7 +50,7 @@
     <item name="android:gravity">center</item>
     <item name="android:layout_height">40dp</item>
     <item name="android:layout_width">40dp</item>
-    <item name="android:background">@android:drawable/list_selector_background</item>
+    <item name="android:background">?android:attr/selectableItemBackground</item>
   </style>
   <style name="MyExpandableListView" parent="android:Widget.ExpandableListView">
     <item name="android:groupIndicator">@drawable/expander_group</item>
@@ -88,7 +88,7 @@
   <style name="HLine">
     <item name="android:layout_height">2dp</item>
     <item name="android:layout_width">match_parent</item>
-    <item name="android:background">?android:attr/listDivider</item>
+    <item name="android:background">?android:attr/dividerHorizontal</item>
   </style>
   <style name="HLine.Blue">
     <item name="android:background">@color/blueLine</item>
@@ -96,7 +96,7 @@
   <style name="VLine">
     <item name="android:layout_height">match_parent</item>
     <item name="android:layout_width">2dp</item>
-    <item name="android:background">?android:attr/listDivider</item>
+    <item name="android:background">?android:attr/dividerVertical</item>
   </style>
   <style name="SelectableSection">
     <item name="android:paddingLeft">0dp</item>

@@ -6,6 +6,6 @@
   android:layout_height="fill_parent"
   android:contentDescription="@string/next"
   android:scaleType="center"
-  android:src="@drawable/navigation_forward_holo_dark"
+  android:src="?iconGoto"
   android:visibility="gone">
 </ImageView>

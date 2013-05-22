@@ -6,17 +6,22 @@ import jemstone.util.log.Logger;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.util.TypedValue;
 import android.view.MenuInflater;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-public class AbstractActivity<AM extends ActivityManager, AP extends ActivityParameters> extends FragmentActivity {
+public class AbstractActivity<AM extends ActivityManager, AP extends ActivityParameters> 
+  extends FragmentActivity implements HasTheme
+{
 
   protected final Logger log = Logger.getLogger(this);
   
@@ -171,6 +176,23 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   @SuppressWarnings("deprecation")
   public int getWindowWidth() {
     return getWindowManager().getDefaultDisplay().getWidth();
+  }
+  
+  @Override
+  public int getThemeColor(int attrId, int defaultColor) {
+    try {
+      Resources resources = getResources();
+      Theme theme = getTheme();
+      TypedValue value = new TypedValue();
+      if (theme.resolveAttribute(attrId, value, true)) {
+        int colorId = value.data;
+        return resources.getColor(colorId);
+      }
+    } catch (Exception e) {
+      log.error(e, "Cannot get color [attrId=%x, defaultColor=%x] from theme",
+                attrId, defaultColor);
+    }
+    return defaultColor;
   }
 
   public boolean isLandscape() {

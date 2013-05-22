@@ -24,11 +24,86 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int actionBarTitleTextStyle=0x7f010000;
-        /**  Specifies a style to use for actionbar subtitle text. 
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int colorChartAxis=0x7f01000f;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int colorChartFillEnd=0x7f010012;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int colorChartFillStart=0x7f010011;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int colorChartLine=0x7f010010;
+        /**  Chart colors 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int colorChartText=0x7f01000e;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconAccept=0x7f010008;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconAdd=0x7f010005;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconCancel=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconCopy=0x7f01000a;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconCut=0x7f010009;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconDelete=0x7f010006;
+        /**  Specifies action bar and menu icons 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int iconGoto=0x7f010002;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconPaste=0x7f01000b;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconRedo=0x7f010004;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconRefresh=0x7f01000c;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconSettings=0x7f01000d;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int iconUndo=0x7f010003;
     }
     public static final class color {
         public static int blueLine=0x7f040005;
@@ -193,27 +268,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int undo=0x7f070015;
     }
     public static final class style {
-        public static int DialogButton=0x7f090010;
-        public static int EditLabel=0x7f09000e;
-        public static int EditSection=0x7f09000d;
+        public static int DialogButton=0x7f09000f;
+        public static int EditLabel=0x7f09000d;
+        public static int EditSection=0x7f09000c;
         /** 
     <item name="android:textColor">?android:attr/textColorPrimary</item>
     <item name="android:background">@drawable/edit_text_holo_dark</item>
     
          */
-        public static int EditText=0x7f09000f;
-        public static int HLine=0x7f090017;
-        public static int HLine_Blue=0x7f090018;
-        public static int ListGroup=0x7f090013;
-        public static int ListGroupText=0x7f090014;
-        public static int ListSeparator=0x7f090015;
-        public static int MyExpandableListView=0x7f090011;
+        public static int EditText=0x7f09000e;
+        public static int HLine=0x7f090016;
+        public static int HLine_Blue=0x7f090017;
+        public static int ListGroup=0x7f090012;
+        public static int ListGroupText=0x7f090013;
+        public static int ListSeparator=0x7f090014;
+        public static int MyExpandableListView=0x7f090010;
         /** 
     <item name="android:divider">@color/blueLine</item>
     <item name="android:childDivider">@color/childDivider</item>
     
          */
-        public static int MyExpandableListView2=0x7f090012;
+        public static int MyExpandableListView2=0x7f090011;
         /**  Use Holo 
          */
         public static int MyTheme=0x7f090000;
@@ -223,19 +298,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  Use Holo.Light 
  Use Holo.Light with dark action bar 
          */
-        public static int MyTheme_Light_DarkActionBar=0x7f090002;
-        public static int SectionSeparator=0x7f090016;
-        public static int SelectableSection=0x7f09001a;
-        public static int TextLarge=0x7f090003;
-        public static int TextMedium=0x7f090004;
-        public static int TextMedium_Blue=0x7f090007;
-        public static int TextMedium_Dark=0x7f090006;
-        public static int TextMedium_Dark_Selectable=0x7f090009;
-        public static int TextMedium_Gray=0x7f090005;
-        public static int TextMedium_Selectable=0x7f090008;
-        public static int TextSmall=0x7f09000a;
-        public static int TextSmall_Blue=0x7f09000c;
-        public static int TextSmall_Dark=0x7f09000b;
-        public static int VLine=0x7f090019;
+        public static int MyTheme_Light_DarkActionBar=0x7f09001a;
+        public static int SectionSeparator=0x7f090015;
+        public static int SelectableSection=0x7f090019;
+        public static int TextLarge=0x7f090002;
+        public static int TextMedium=0x7f090003;
+        public static int TextMedium_Blue=0x7f090006;
+        public static int TextMedium_Dark=0x7f090005;
+        public static int TextMedium_Dark_Selectable=0x7f090008;
+        public static int TextMedium_Gray=0x7f090004;
+        public static int TextMedium_Selectable=0x7f090007;
+        public static int TextSmall=0x7f090009;
+        public static int TextSmall_Blue=0x7f09000b;
+        public static int TextSmall_Dark=0x7f09000a;
+        public static int VLine=0x7f090018;
     }
 }

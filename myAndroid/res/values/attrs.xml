@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Specifies a style to use for actionbar title text. -->
+  <attr name="actionBarTitleTextStyle" format="reference"/>
+  <!-- Specifies a style to use for actionbar subtitle text. -->
+  <attr name="actionBarSubtitleTextStyle" format="reference"/>
+  
+  <!-- Specifies action bar and menu icons -->
+  <attr name="iconGoto" format="reference"/>
+  <attr name="iconUndo" format="reference"/>
+  <attr name="iconRedo" format="reference"/>
+  <attr name="iconAdd" format="reference"/>
+  <attr name="iconDelete" format="reference"/>
+  <attr name="iconCancel" format="reference"/>
+  <attr name="iconAccept" format="reference"/>
+  <attr name="iconCut" format="reference"/>
+  <attr name="iconCopy" format="reference"/>
+  <attr name="iconPaste" format="reference"/>
+  <attr name="iconRefresh" format="reference"/>
+  <attr name="iconSettings" format="reference"/>
+  
+  <!-- Chart colors -->
+  <attr name="colorChartText" format="reference|color"/>
+  <attr name="colorChartAxis" format="reference|color"/>
+  <attr name="colorChartLine" format="reference|color"/>
+  <attr name="colorChartFillStart" format="reference|color"/>
+  <attr name="colorChartFillEnd" format="reference|color"/>
+</resources>

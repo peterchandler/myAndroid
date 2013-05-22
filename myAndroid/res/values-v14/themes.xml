@@ -1,0 +1,32 @@
+<resources>
+  <!-- Use Holo.Light with dark action bar -->
+  <style name="MyTheme.Light.DarkActionBar" parent="android:Theme.Holo.Light.DarkActionBar">
+    <item name="android:editTextStyle">@style/EditText</item>
+    <item name="android:expandableListViewStyle">@style/MyExpandableListView</item>
+    
+    <!-- Action Bar  -->
+    <item name="actionBarTitleTextStyle">@android:style/TextAppearance.Medium.Inverse</item>
+    <item name="actionBarSubtitleTextStyle">@android:style/TextAppearance.Small.Inverse</item>
+    
+    <!-- Icons -->
+    <item name="iconGoto">@drawable/navigation_forward_holo_light</item>
+    <item name="iconUndo">@drawable/content_undo_holo_dark</item>
+    <item name="iconRedo">@drawable/content_redo_holo_dark</item>
+    <item name="iconAdd">@drawable/content_new_holo_dark</item>
+    <item name="iconDelete">@drawable/content_discard_holo_dark</item>
+    <item name="iconCancel">@drawable/navigation_cancel_holo_dark</item>
+    <item name="iconAccept">@drawable/navigation_accept_holo_dark</item>
+    <item name="iconCut">@drawable/content_cut_holo_dark</item>
+    <item name="iconCopy">@drawable/content_copy_holo_dark</item>
+    <item name="iconPaste">@drawable/content_paste_holo_dark</item>
+    <item name="iconRefresh">@drawable/navigation_refresh_holo_dark</item>
+    <item name="iconSettings">@drawable/action_settings_holo_dark</item>
+    
+    <!-- Chart colors -->
+    <item name="colorChartText">@android:color/primary_text_dark</item>
+    <item name="colorChartAxis">@android:color/primary_text_dark</item>
+    <item name="colorChartLine">@color/blueLine</item>
+    <item name="colorChartFillStart">#AA8888FF</item>
+    <item name="colorChartFillEnd">#AAFFFFFF</item>
+  </style>
+</resources>

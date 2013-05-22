@@ -7,12 +7,12 @@
 	<target name="archive" description="Archive important Jemstone files">
 
 		<echo message="Today: ${today}"/>
-		<property name="accounts.zip"   value="${user.home}/temp/accounts-${today}.zip" />
-		<property name="mycashflow.zip" value="${user.home}/temp/mycashflow-${today}.zip" />
-    <property name="personal.zip"   value="${user.home}/temp/personal-${today}.zip" />
+		<property name="accounts.zip" value="${user.home}/temp/accounts-${today}.zip" />
+		<property name="android.zip"  value="${user.home}/temp/android-${today}.zip" />
+    <property name="personal.zip" value="${user.home}/temp/personal-${today}.zip" />
 
 		<delete file="${accounts.zip}" />
-		<delete file="${mycashflow.zip}" />
+		<delete file="${android.zip}" />
     <delete file="${personal.zip}" />
 
 		<zip destfile="${accounts.zip}">
@@ -21,14 +21,15 @@
 			</fileset>
 		</zip>
 		
-		<zip destfile="${mycashflow.zip}">
-			<fileset dir="${user.home}/Documents/GitHub/jemstone">
-				<include name="myCashFlow/**" />
-				<include name="myCashFlowTest/**" />
-				<include name="myCashFlowTest2/**" />
-        <exclude name="*/bin/**" />
-        <exclude name="*/.git/**" />
-        <exclude name="*/.metadata/**" />
+		<zip destfile="${android.zip}">
+			<fileset dir="${user.home}/Documents/GitHub">
+				<include name="jemstone/**" />
+				<include name="myAndroid/**" />
+				<include name="myStuff/**" />
+        
+        <exclude name="**/bin/**" />
+        <exclude name="**/.git/**" />
+        <exclude name="**/.metadata/**" />
       </fileset>
 		</zip>
 
