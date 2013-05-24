@@ -1,18 +1,15 @@
 package jemstone.ui;
 
 import jemstone.model.HasName;
-import jemstone.myandroid.R;
 import jemstone.util.log.Logger;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.Resources.Theme;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.util.TypedValue;
 import android.view.MenuInflater;
 import android.view.Surface;
 import android.view.View;
@@ -22,7 +19,6 @@ import android.view.inputmethod.InputMethodManager;
 public class AbstractActivity<AM extends ActivityManager, AP extends ActivityParameters> 
   extends FragmentActivity implements HasTheme
 {
-
   protected final Logger log = Logger.getLogger(this);
   
   private AM activityManager;
@@ -94,9 +90,9 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     }
     
     // Set theme
-    setTheme(R.style.MyTheme_Light_DarkActionBar);
+    getActivityManager().setActivityTheme(this);
     
-    //
+    // Set home activity
     getActionBar().setDisplayHomeAsUpEnabled(!isHomeActivity());
   
     // Don't want keyboard on startup
@@ -181,15 +177,15 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   @Override
   public int getThemeColor(int attrId, int defaultColor) {
     try {
-      Resources resources = getResources();
-      Theme theme = getTheme();
-      TypedValue value = new TypedValue();
-      if (theme.resolveAttribute(attrId, value, true)) {
-        int colorId = value.data;
-        return resources.getColor(colorId);
-      }
+      TypedArray a = getTheme().obtainStyledAttributes(new int[] {attrId});
+      int color = a.getColor(0, defaultColor);
+      a.recycle();
+      
+      log.info("getThemeColor(%x): returned [color=%x, defaultColor=%x]", attrId, color, defaultColor);
+      
+      return color;
     } catch (Exception e) {
-      log.error(e, "Cannot get color [attrId=%x, defaultColor=%x] from theme",
+      log.error(e, "Cannot get color [attrId=%x] from theme, returnng [defaultColor=%x]",
                 attrId, defaultColor);
     }
     return defaultColor;

@@ -23,8 +23,8 @@
     <item name="iconSettings">@drawable/action_settings_holo_dark</item>
     
     <!-- Chart colors -->
-    <item name="colorChartText">@android:color/primary_text_dark</item>
-    <item name="colorChartAxis">@android:color/primary_text_dark</item>
+    <item name="colorChartText">@android:color/primary_text_light</item>
+    <item name="colorChartAxis">@android:color/primary_text_light</item>
     <item name="colorChartLine">@color/blueLine</item>
     <item name="colorChartFillStart">#AA8888FF</item>
     <item name="colorChartFillEnd">#AAFFFFFF</item>

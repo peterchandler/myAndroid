@@ -12,6 +12,7 @@ public final class R {
         public static int day_of_week=0x7f080002;
         public static int repeat_frequency=0x7f080000;
         public static int repeat_monthly=0x7f080001;
+        public static int themes=0x7f080003;
     }
     public static final class attr {
         /**  Specifies a style to use for actionbar subtitle text. 
@@ -232,40 +233,41 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int select_checkbox=0x7f03000a;
     }
     public static final class string {
-        public static int accept=0x7f07000e;
-        public static int add=0x7f07000f;
-        public static int amount=0x7f07001e;
-        public static int cancel=0x7f07000c;
-        public static int configure=0x7f07001f;
-        public static int copy=0x7f070013;
+        public static int accept=0x7f07000f;
+        public static int add=0x7f070010;
+        public static int amount=0x7f07001f;
+        public static int cancel=0x7f07000d;
+        public static int configure=0x7f070020;
+        public static int copy=0x7f070014;
         public static int copyright=0x7f070000;
-        public static int cut=0x7f070012;
-        public static int date=0x7f07001d;
-        public static int dateFormatLong=0x7f070009;
-        public static int dateRange=0x7f07000a;
-        public static int delete=0x7f070010;
-        public static int description=0x7f07001c;
-        public static int done=0x7f070018;
-        public static int edit=0x7f070011;
-        public static int home=0x7f070017;
+        public static int cut=0x7f070013;
+        public static int date=0x7f07001e;
+        public static int dateFormatLong=0x7f07000a;
+        public static int dateRange=0x7f07000b;
+        public static int delete=0x7f070011;
+        public static int description=0x7f07001d;
+        public static int done=0x7f070019;
+        public static int edit=0x7f070012;
+        public static int home=0x7f070018;
         public static int jemstone=0x7f070001;
         public static int link_to_google_play=0x7f070002;
-        public static int name=0x7f07001b;
-        public static int next=0x7f070021;
-        public static int ok=0x7f07000b;
-        public static int paste=0x7f070014;
-        public static int redo=0x7f070016;
-        public static int refresh=0x7f070020;
-        public static int repeat=0x7f070019;
-        public static int repeatEvery=0x7f07001a;
-        public static int repeatNext=0x7f070008;
-        public static int save=0x7f07000d;
+        public static int name=0x7f07001c;
+        public static int next=0x7f070022;
+        public static int ok=0x7f07000c;
+        public static int paste=0x7f070015;
+        public static int redo=0x7f070017;
+        public static int refresh=0x7f070021;
+        public static int repeat=0x7f07001a;
+        public static int repeatEvery=0x7f07001b;
+        public static int repeatNext=0x7f070009;
+        public static int save=0x7f07000e;
         public static int titleCreate=0x7f070004;
         public static int titleEdit=0x7f070005;
         public static int titleRepeatEdit=0x7f070006;
         public static int titleSelectDate=0x7f070007;
+        public static int titleSelectTheme=0x7f070008;
         public static int titleVersionString=0x7f070003;
-        public static int undo=0x7f070015;
+        public static int undo=0x7f070016;
     }
     public static final class style {
         public static int DialogButton=0x7f09000f;
