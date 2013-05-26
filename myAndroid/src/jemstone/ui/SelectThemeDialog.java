@@ -38,11 +38,12 @@ public class SelectThemeDialog extends DialogFragment {
         case 2: selectedTheme = Theme.LightDarkActionBar;  break;
       }
       
-      // Save the choice
-      activity.getActivityManager().setTheme(selectedTheme);
-      
       // Close the dialog
       SelectThemeDialog.this.dismiss();
+      
+      // Save the choice
+      activity.getActivityManager().setTheme(selectedTheme);
+      activity.getActivityManager().startConfigurationActivity();
     }
   }
 }

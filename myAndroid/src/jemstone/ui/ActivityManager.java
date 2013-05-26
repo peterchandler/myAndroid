@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
-public class ActivityManager {
+public abstract class ActivityManager {
   public enum Theme { Dark, Light, LightDarkActionBar };
 
   private final Context context;
@@ -49,4 +49,6 @@ public class ActivityManager {
         break;
     }
   }
+  
+  public abstract void startConfigurationActivity();
 }
