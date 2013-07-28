@@ -3,11 +3,15 @@
   android:id="@+id/date_edit_dialog"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
+  android:layout_gravity="center_horizontal"
   android:orientation="vertical">
-  <jemstone.ui.DateEditView
-    android:id="@+id/date_edit"
+  <DatePicker
+    android:id="@+id/date_picker"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"/>
+    android:layout_gravity="center_horizontal"
+    android:padding="10dp"
+    android:calendarViewShown="true"
+    android:spinnersShown="false" />
   <include layout="@layout/dialog_buttons"/>
 </LinearLayout>

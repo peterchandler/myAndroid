@@ -4,17 +4,19 @@ import java.util.Calendar;
 import java.util.Date;
 
 import jemstone.myandroid.R;
+import jemstone.util.DateUtil;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
-public class DateEditDialog extends AbstractDialogFragment<ActivityParameters> {
+public class DateEditDialog extends AbstractDialogFragment<ActivityParameters>
+                         implements DatePicker.OnDateChangedListener 
+{
   public static final String DATE = "DateEditDialog.Date";
 
-  private Date date;
-
-  private DateEditView dateEdit;
+  private Calendar calendar;
 
   public DateEditDialog() {
     super();
@@ -23,7 +25,7 @@ public class DateEditDialog extends AbstractDialogFragment<ActivityParameters> {
   public DateEditDialog(ActivityParameters parameters) {
     super(parameters);
   }
-
+  
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -39,41 +41,48 @@ public class DateEditDialog extends AbstractDialogFragment<ActivityParameters> {
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
-    dateEdit = (DateEditView) getView().findViewById(R.id.date_edit);
-    dateEdit.setDate(date);
-    dateEdit.addChangedListener(new OnDateChangedListener());
+    // Use the current date as the default date in the picker
+    if (calendar == null) {
+      calendar = DateUtil.getCurrentDate();
+    }
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH);
+    int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+    // Set the date in the date picker
+    DatePicker picker = (DatePicker) getView().findViewById(R.id.date_picker);
+    picker.init(year, month, day, this);
 
     // Update the title
-    setTitle(R.string.titleSelectDate, dateEdit.getCalendar());
+    setTitle(R.string.titleSelectDate, calendar);
   }
 
   @Override
   public void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
-    outState.putSerializable(DATE, date);
+    outState.putSerializable(DATE, getDate());
   }
 
   public Date getDate() {
-    return dateEdit.getCalendar().getTime();
+    return calendar.getTime();
   }
 
   public void setDate(Date date) {
-    this.date = date;
+    this.calendar = DateUtil.calendar(date);
   }
 
   public void setDate(Bundle bundle) {
     if (bundle != null) {
       Date date = (Date)bundle.getSerializable(DATE);
       if (date != null) {
-        this.date = date;
+        setDate(date);
       }
     }
   }
 
-  private class OnDateChangedListener implements DateEditView.OnDateChangedListener {
-    @Override
-    public void onChanged(Calendar newDate) {
-      setTitle(R.string.titleSelectDate, newDate);
-    }
+  @Override
+  public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+    calendar.set(year, monthOfYear, dayOfMonth);
+    setTitle(R.string.titleSelectDate, calendar);
   }
 }
