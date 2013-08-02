@@ -15,6 +15,7 @@
     <item name="iconAdd">@drawable/content_new_holo_dark</item>
     <item name="iconDelete">@drawable/content_discard_holo_dark</item>
     <item name="iconCancel">@drawable/navigation_cancel_holo_dark</item>
+    <item name="iconCancelInverse">@drawable/navigation_cancel_holo_dark</item>
     <item name="iconAccept">@drawable/navigation_accept_holo_dark</item>
     <item name="iconCut">@drawable/content_cut_holo_dark</item>
     <item name="iconCopy">@drawable/content_copy_holo_dark</item>
@@ -46,6 +47,7 @@
     <item name="iconAdd">@drawable/content_new_holo_light</item>
     <item name="iconDelete">@drawable/content_discard_holo_light</item>
     <item name="iconCancel">@drawable/navigation_cancel_holo_light</item>
+    <item name="iconCancelInverse">@drawable/navigation_cancel_holo_light</item>
     <item name="iconAccept">@drawable/navigation_accept_holo_light</item>
     <item name="iconCut">@drawable/content_cut_holo_light</item>
     <item name="iconCopy">@drawable/content_copy_holo_light</item>

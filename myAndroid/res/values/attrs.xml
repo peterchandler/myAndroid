@@ -12,6 +12,7 @@
   <attr name="iconAdd" format="reference"/>
   <attr name="iconDelete" format="reference"/>
   <attr name="iconCancel" format="reference"/>
+  <attr name="iconCancelInverse" format="reference"/>
   <attr name="iconAccept" format="reference"/>
   <attr name="iconCut" format="reference"/>
   <attr name="iconCopy" format="reference"/>

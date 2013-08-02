@@ -31,8 +31,14 @@
     <item name="android:textColor">@color/blueText</item>
   </style>
   <style name="EditSection">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">fill_parent</item>
     <item name="android:paddingTop">5dp</item>
     <item name="android:paddingBottom">5dp</item>
+  </style>
+  <style name="EditSection.XLarge">
+    <item name="android:paddingLeft">5dp</item>
+    <item name="android:paddingRight">10dp</item>
   </style>
   <style name="EditLabel" parent="android:TextAppearance.Medium">
     <item name="android:paddingLeft">8dp</item>
@@ -100,10 +106,12 @@
   </style>
   <style name="SelectableSection" parent="TextMedium">
     <item name="android:paddingLeft">0dp</item>
-    <item name="android:paddingTop">5dp</item>
-    <item name="android:paddingBottom">5dp</item>
+    <item name="android:paddingTop">0dp</item>
+    <item name="android:paddingBottom">0dp</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">fill_parent</item>
     <item name="android:background">@drawable/spinner_background_holo_dark</item>
+    <item name="android:ellipsize">marquee</item>
+    <item name="android:maxLines">1</item>
   </style>
 </resources>
