@@ -37,20 +37,14 @@
     <item name="android:paddingBottom">5dp</item>
   </style>
   <style name="EditSection.XLarge">
-    <item name="android:paddingLeft">5dp</item>
-    <item name="android:paddingRight">10dp</item>
   </style>
   <style name="EditLabel" parent="android:TextAppearance.Medium">
-    <item name="android:paddingLeft">8dp</item>
+    <item name="android:paddingLeft">@dimen/text_paddingLeft</item>
     <item name="android:textColor">?android:attr/textColorSecondary</item>
   </style>
   <style name="EditText" parent="android:Widget.EditText">
     <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-    <item name="android:paddingLeft">8dp</item>
-    <!--
-    <item name="android:textColor">?android:attr/textColorPrimary</item>
-    <item name="android:background">@drawable/edit_text_holo_dark</item>
-    -->
+    <item name="android:paddingLeft">@dimen/text_paddingLeft</item>
   </style>
   <style name="DialogButton">
     <item name="android:gravity">center</item>
@@ -60,12 +54,6 @@
   </style>
   <style name="MyExpandableListView" parent="android:Widget.ExpandableListView">
     <item name="android:groupIndicator">@drawable/expander_group</item>
-  </style>
-  <style name="MyExpandableListView2" parent="MyExpandableListView">
-    <!--
-    <item name="android:divider">@color/blueLine</item>
-    <item name="android:childDivider">@color/childDivider</item>
-    -->
   </style>
   <style name="ListGroup">
     <item name="android:gravity">center_vertical</item>
