@@ -226,9 +226,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int dialog_buttons=0x7f030004;
         public static int goto_button=0x7f030005;
         public static int list_dialog=0x7f030006;
-        public static int list_fragment=0x7f030007;
-        public static int list_item_with_next_button=0x7f030008;
-        public static int select_checkbox=0x7f030009;
+        public static int list_item_with_next_button=0x7f030007;
+        public static int select_checkbox=0x7f030008;
     }
     public static final class string {
         public static int accept=0x7f07000f;
