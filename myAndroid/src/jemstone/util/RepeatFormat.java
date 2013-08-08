@@ -9,13 +9,16 @@ import java.util.Date;
 public class RepeatFormat {
   private final StringBuffer str = new StringBuffer();
   private final DateFormat dateFormat = Formatter.getDateInstance();
+  private final DateFormat monthYearFormat = Formatter.getDateMonthYearInstance();
   private final DateFormatSymbols symbols = new DateFormatSymbols();
+  
+  public static String DEFAULT_PREFIX = "Occurs";
 
   public RepeatFormat() {
   }
 
   public String format(Repeat repeat, Date startDate) {
-    return format(repeat, startDate, null, "Occurs");
+    return format(repeat, startDate, null, null);
   }
 
   public String format(Repeat repeat, Date startDate, String prefix) {
@@ -23,12 +26,12 @@ public class RepeatFormat {
   }
 
   public String format(Repeat repeat, Date startDate, Date finishDate) {
-    return format(repeat, startDate, finishDate, "Occurs");
+    return format(repeat, startDate, finishDate, null);
   }
 
   public String format(Repeat repeat, Date startDate, Date finishDate, String prefix) {
     str.setLength(0);
-    str.append(prefix);
+    str.append(prefix != null ? prefix : DEFAULT_PREFIX);
     str.append(' ');
 
     if (repeat.isSingle()) {
@@ -98,7 +101,7 @@ public class RepeatFormat {
 
     if (finishDate != null) {
       str.append(" until ");
-      dateFormat.format(finishDate, str, new FieldPosition(0));
+      monthYearFormat.format(finishDate, str, new FieldPosition(0));
     }
 
     return str.toString();
