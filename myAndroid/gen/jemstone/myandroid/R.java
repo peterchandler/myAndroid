@@ -267,17 +267,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int undo=0x7f070016;
     }
     public static final class style {
-        public static int DialogButton=0x7f090010;
-        public static int EditLabel=0x7f09000e;
+        public static int DialogButton=0x7f09000f;
+        public static int EditLabel=0x7f09000d;
         public static int EditSection=0x7f09000c;
-        public static int EditSection_XLarge=0x7f09000d;
-        public static int EditText=0x7f09000f;
-        public static int HLine=0x7f090016;
-        public static int HLine_Blue=0x7f090017;
-        public static int ListGroup=0x7f090012;
-        public static int ListGroupText=0x7f090013;
-        public static int ListSeparator=0x7f090014;
-        public static int MyExpandableListView=0x7f090011;
+        public static int EditText=0x7f09000e;
+        public static int HLine=0x7f090015;
+        public static int HLine_Blue=0x7f090016;
+        public static int ListGroup=0x7f090011;
+        public static int ListGroupText=0x7f090012;
+        public static int ListSeparator=0x7f090013;
+        public static int MyExpandableListView=0x7f090010;
         /**  Use Holo 
          */
         public static int MyTheme=0x7f090000;
@@ -287,9 +286,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  Use Holo.Light 
  Use Holo.Light with dark action bar 
          */
-        public static int MyTheme_Light_DarkActionBar=0x7f09001a;
-        public static int SectionSeparator=0x7f090015;
-        public static int SelectableSection=0x7f090019;
+        public static int MyTheme_Light_DarkActionBar=0x7f090019;
+        public static int SectionSeparator=0x7f090014;
+        public static int SelectableSection=0x7f090018;
         public static int TextLarge=0x7f090002;
         public static int TextMedium=0x7f090003;
         public static int TextMedium_Blue=0x7f090006;
@@ -300,6 +299,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int TextSmall=0x7f090009;
         public static int TextSmall_Blue=0x7f09000b;
         public static int TextSmall_Dark=0x7f09000a;
-        public static int VLine=0x7f090018;
+        public static int VLine=0x7f090017;
     }
 }
