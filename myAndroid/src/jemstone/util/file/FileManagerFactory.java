@@ -86,7 +86,7 @@ public class FileManagerFactory implements FileManager.Factory {
     setSaveDao(manager);
     setListener(manager);
     
-    log.debug("Created file manager %s, writing %s", manager.getClass().getName(), manager.getFile());
+    log.debug("Created [%s] to access %s", manager.getClass().getName(), manager.getFile());
 
     return manager;
   }

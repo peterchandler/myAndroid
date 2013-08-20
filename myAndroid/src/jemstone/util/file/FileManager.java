@@ -16,8 +16,6 @@ import android.content.Context;
 public class FileManager {
   protected final Logger log = Logger.getLogger(getClass());
   
-  private static Factory factory;
-  
   /** Listen for events */
   private Listener listener;
 
@@ -194,17 +192,5 @@ public class FileManager {
    */
   public interface Factory {
     public FileManager getInstance(Context context);
-  }
-
-  public static Factory getFactory() {
-    return factory;
-  }
-
-  public static void setFactory(Factory factory) {
-    FileManager.factory = factory;
-  }
-  
-  public static FileManager getInstance(Context context) {
-    return getFactory().getInstance(context);
   }
 }

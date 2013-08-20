@@ -82,7 +82,7 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
             try {
               p.create(id);
             } catch (Exception e) {
-              final String className = parser.getClass().getSimpleName();
+              final String className = (parser != null) ? parser.getClass().getSimpleName() : null;
               throw new DaoException(e, "Error in %s.parse: [tag=%s, id=%s]", className, tag, id);
             }
 
