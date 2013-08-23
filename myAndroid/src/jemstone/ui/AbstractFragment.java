@@ -187,4 +187,10 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   public void setSubtitle(String format, Object ... args) {
     activity.setSubtitle(format, args);
   }
+
+  public void setVisibility(View view, boolean visible) {
+    if (view != null) {
+      view.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+  }
 }
