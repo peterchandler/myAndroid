@@ -91,11 +91,12 @@ public class FileManager {
       listener.onPreLoad();
     }
     
-    log.info("Load started");
+    File file = getFile();
+
+    log.info("Load started: %s", file);
     Timer timer = new Timer();
     
     // Load the file
-    File file = getFile();
     Reader reader = new FileReader(file);
     if (reader != null) {
       loadDao.load(reader);

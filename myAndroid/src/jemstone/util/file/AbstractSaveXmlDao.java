@@ -182,7 +182,7 @@ public abstract class AbstractSaveXmlDao<T extends EntityManager> implements Sav
 
   protected void write(HasId item) throws IllegalArgumentException, IllegalStateException, IOException {
     if (item != null) {
-      serializer.attribute(null, ID, Integer.toString(item.getId()));
+      serializer.attribute(null, ID, Long.toString(item.getId()));
     }
   }
 }

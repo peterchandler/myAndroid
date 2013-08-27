@@ -68,7 +68,7 @@ public abstract class EditCommand<T> implements UndoableCommand {
   @Override
   public void print(PrintWriter out, int depth) {
     Printer.indent(out, depth);
-    int id = (entity instanceof HasId) ? ((HasId)entity).getId() : -1;
+    long id = (entity instanceof HasId) ? ((HasId)entity).getId() : -1;
 
     out.format("%s: [oldValue=%s, newValue=%s, entity=%s(id=%d)]",
                getClass().getSimpleName(), oldValue, newValue,

@@ -10,7 +10,7 @@ import jemstone.util.NameOrderedList;
 public abstract class EntityFactory<T extends HasName> implements Iterable<T> {
   private final List<T> entities = new NameOrderedList<T>();
 
-  protected abstract T add(int id);
+  protected abstract T add(long id);
   protected abstract T add(String name);
 
   protected T add(T entity) {
@@ -27,7 +27,7 @@ public abstract class EntityFactory<T extends HasName> implements Iterable<T> {
     return entities.iterator();
   }
 
-  public T get(int id) {
+  public T get(long id) {
     final int size = entities.size();
     for (int i=0;  i < size;  i++) {
       T entity = entities.get(i);
@@ -51,7 +51,7 @@ public abstract class EntityFactory<T extends HasName> implements Iterable<T> {
     return null;
   }
 
-  public T create(int id) {
+  public T create(long id) {
     T entity = get(id);
     if (entity != null) {
       String name = entity.getClass().getSimpleName();

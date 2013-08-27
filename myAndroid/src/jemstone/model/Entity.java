@@ -4,18 +4,18 @@ import jemstone.util.Printable;
 import jemstone.util.Printer;
 
 public abstract class Entity implements HasId, Printable {
-  private int id;
+  private long id;
 
-  protected Entity(int id) {
+  protected Entity(long id) {
     this.id = id;
   }
 
-  protected void setId(int id) {
+  protected void setId(long id) {
     this.id = id;
   }
 
   @Override
-  public int getId() {
+  public long getId() {
     return id;
   }
 
@@ -28,25 +28,21 @@ public abstract class Entity implements HasId, Printable {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + id;
+    result = prime * result + (int) (id ^ (id >>> 32));
     return result;
   }
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) {
+    if (this == obj)
       return true;
-    }
-    if (obj == null) {
+    if (obj == null)
       return false;
-    }
-    if (!(obj instanceof Entity)) {
+    if (getClass() != obj.getClass())
       return false;
-    }
     Entity other = (Entity) obj;
-    if (id != other.id) {
+    if (id != other.id)
       return false;
-    }
     return true;
   }
 }
