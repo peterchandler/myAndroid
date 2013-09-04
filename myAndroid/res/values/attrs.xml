@@ -19,6 +19,7 @@
   <attr name="iconPaste" format="reference"/>
   <attr name="iconRefresh" format="reference"/>
   <attr name="iconSettings" format="reference"/>
+  <attr name="iconSortBySize" format="reference"/>
   
   <!-- Chart colors -->
   <attr name="colorChartText" format="reference|color"/>

@@ -19,7 +19,7 @@
       <fileset dir="${images.src.dir}">
         <include name="**/1-navigation-*.*" />
         <include name="**/2-action-*.*" />
-        <include name="**/4-collections-new-label.*" />
+        <include name="**/4-collections-*.*" />
         <include name="**/5-content-discard.*" />
         <include name="**/5-content-new.*" />
         <include name="**/5-content-copy.*" />

@@ -30,32 +30,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static int colorChartAxis=0x7f010010;
+        public static int colorChartAxis=0x7f010011;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static int colorChartFillEnd=0x7f010013;
+        public static int colorChartFillEnd=0x7f010014;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static int colorChartFillStart=0x7f010012;
+        public static int colorChartFillStart=0x7f010013;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static int colorChartLine=0x7f010011;
+        public static int colorChartLine=0x7f010012;
         /**  Chart colors 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static int colorChartText=0x7f01000f;
+        public static int colorChartText=0x7f010010;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -108,6 +108,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
+        public static int iconSortBySize=0x7f01000f;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
         public static int iconUndo=0x7f010003;
     }
     public static final class color {
@@ -141,58 +145,72 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int action_search_holo_light=0x7f020005;
         public static int action_settings_holo_dark=0x7f020006;
         public static int action_settings_holo_light=0x7f020007;
-        public static int collections_new_label_holo_dark=0x7f020008;
-        public static int collections_new_label_holo_light=0x7f020009;
-        public static int content_copy_holo_dark=0x7f02000a;
-        public static int content_copy_holo_light=0x7f02000b;
-        public static int content_cut_holo_dark=0x7f02000c;
-        public static int content_cut_holo_light=0x7f02000d;
-        public static int content_discard_holo_dark=0x7f02000e;
-        public static int content_discard_holo_light=0x7f02000f;
-        public static int content_new_holo_dark=0x7f020010;
-        public static int content_new_holo_light=0x7f020011;
-        public static int content_paste_holo_dark=0x7f020012;
-        public static int content_paste_holo_light=0x7f020013;
-        public static int content_redo_holo_dark=0x7f020014;
-        public static int content_redo_holo_light=0x7f020015;
-        public static int content_undo_holo_dark=0x7f020016;
-        public static int content_undo_holo_light=0x7f020017;
-        public static int expander_close_holo_dark=0x7f020018;
-        public static int expander_close_holo_light=0x7f020019;
-        public static int expander_group=0x7f02001a;
-        public static int expander_open_holo_dark=0x7f02001b;
-        public static int expander_open_holo_light=0x7f02001c;
-        public static int ic_ab_back_holo_dark=0x7f02001d;
-        public static int ic_ab_back_holo_light=0x7f02001e;
-        public static int myapp_icon=0x7f02001f;
-        public static int navigation_accept_holo_dark=0x7f020020;
-        public static int navigation_accept_holo_light=0x7f020021;
-        public static int navigation_back_holo_dark=0x7f020022;
-        public static int navigation_back_holo_light=0x7f020023;
-        public static int navigation_cancel_holo_dark=0x7f020024;
-        public static int navigation_cancel_holo_light=0x7f020025;
-        public static int navigation_collapse_holo_dark=0x7f020026;
-        public static int navigation_collapse_holo_light=0x7f020027;
-        public static int navigation_expand_holo_dark=0x7f020028;
-        public static int navigation_expand_holo_light=0x7f020029;
-        public static int navigation_forward_holo_dark=0x7f02002a;
-        public static int navigation_forward_holo_light=0x7f02002b;
-        public static int navigation_next_item_holo_dark=0x7f02002c;
-        public static int navigation_next_item_holo_light=0x7f02002d;
-        public static int navigation_previous_item_holo_dark=0x7f02002e;
-        public static int navigation_previous_item_holo_light=0x7f02002f;
-        public static int navigation_refresh_holo_dark=0x7f020030;
-        public static int navigation_refresh_holo_light=0x7f020031;
-        public static int spinner_background_holo_dark=0x7f020032;
-        public static int spinner_background_holo_light=0x7f020033;
-        public static int spinner_default_holo_dark=0x7f020034;
-        public static int spinner_default_holo_light=0x7f020035;
-        public static int spinner_disabled_holo_dark=0x7f020036;
-        public static int spinner_disabled_holo_light=0x7f020037;
-        public static int spinner_focused_holo_dark=0x7f020038;
-        public static int spinner_focused_holo_light=0x7f020039;
-        public static int spinner_pressed_holo_dark=0x7f02003a;
-        public static int spinner_pressed_holo_light=0x7f02003b;
+        public static int collections_cloud_holo_dark=0x7f020008;
+        public static int collections_cloud_holo_light=0x7f020009;
+        public static int collections_collection_holo_dark=0x7f02000a;
+        public static int collections_collection_holo_light=0x7f02000b;
+        public static int collections_go_to_today_holo_dark=0x7f02000c;
+        public static int collections_go_to_today_holo_light=0x7f02000d;
+        public static int collections_labels_holo_dark=0x7f02000e;
+        public static int collections_labels_holo_light=0x7f02000f;
+        public static int collections_new_label_holo_dark=0x7f020010;
+        public static int collections_new_label_holo_light=0x7f020011;
+        public static int collections_sort_by_size_holo_dark=0x7f020012;
+        public static int collections_sort_by_size_holo_light=0x7f020013;
+        public static int collections_view_as_grid_holo_dark=0x7f020014;
+        public static int collections_view_as_grid_holo_light=0x7f020015;
+        public static int collections_view_as_list_holo_dark=0x7f020016;
+        public static int collections_view_as_list_holo_light=0x7f020017;
+        public static int content_copy_holo_dark=0x7f020018;
+        public static int content_copy_holo_light=0x7f020019;
+        public static int content_cut_holo_dark=0x7f02001a;
+        public static int content_cut_holo_light=0x7f02001b;
+        public static int content_discard_holo_dark=0x7f02001c;
+        public static int content_discard_holo_light=0x7f02001d;
+        public static int content_new_holo_dark=0x7f02001e;
+        public static int content_new_holo_light=0x7f02001f;
+        public static int content_paste_holo_dark=0x7f020020;
+        public static int content_paste_holo_light=0x7f020021;
+        public static int content_redo_holo_dark=0x7f020022;
+        public static int content_redo_holo_light=0x7f020023;
+        public static int content_undo_holo_dark=0x7f020024;
+        public static int content_undo_holo_light=0x7f020025;
+        public static int expander_close_holo_dark=0x7f020026;
+        public static int expander_close_holo_light=0x7f020027;
+        public static int expander_group=0x7f020028;
+        public static int expander_open_holo_dark=0x7f020029;
+        public static int expander_open_holo_light=0x7f02002a;
+        public static int ic_ab_back_holo_dark=0x7f02002b;
+        public static int ic_ab_back_holo_light=0x7f02002c;
+        public static int myapp_icon=0x7f02002d;
+        public static int navigation_accept_holo_dark=0x7f02002e;
+        public static int navigation_accept_holo_light=0x7f02002f;
+        public static int navigation_back_holo_dark=0x7f020030;
+        public static int navigation_back_holo_light=0x7f020031;
+        public static int navigation_cancel_holo_dark=0x7f020032;
+        public static int navigation_cancel_holo_light=0x7f020033;
+        public static int navigation_collapse_holo_dark=0x7f020034;
+        public static int navigation_collapse_holo_light=0x7f020035;
+        public static int navigation_expand_holo_dark=0x7f020036;
+        public static int navigation_expand_holo_light=0x7f020037;
+        public static int navigation_forward_holo_dark=0x7f020038;
+        public static int navigation_forward_holo_light=0x7f020039;
+        public static int navigation_next_item_holo_dark=0x7f02003a;
+        public static int navigation_next_item_holo_light=0x7f02003b;
+        public static int navigation_previous_item_holo_dark=0x7f02003c;
+        public static int navigation_previous_item_holo_light=0x7f02003d;
+        public static int navigation_refresh_holo_dark=0x7f02003e;
+        public static int navigation_refresh_holo_light=0x7f02003f;
+        public static int spinner_background_holo_dark=0x7f020040;
+        public static int spinner_background_holo_light=0x7f020041;
+        public static int spinner_default_holo_dark=0x7f020042;
+        public static int spinner_default_holo_light=0x7f020043;
+        public static int spinner_disabled_holo_dark=0x7f020044;
+        public static int spinner_disabled_holo_light=0x7f020045;
+        public static int spinner_focused_holo_dark=0x7f020046;
+        public static int spinner_focused_holo_light=0x7f020047;
+        public static int spinner_pressed_holo_dark=0x7f020048;
+        public static int spinner_pressed_holo_light=0x7f020049;
     }
     public static final class id {
         public static int accept=0x7f060007;
