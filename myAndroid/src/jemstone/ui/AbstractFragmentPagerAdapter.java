@@ -40,11 +40,19 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
   }
 
   public T get(int index) {
-    return entities.get(index);
+    try {
+      return entities.get(index);
+    } catch (Exception e) {
+      return null;
+    }
   }
 
   public int indexOf(T entity) {
-    return entities.indexOf(entity);
+    try {
+      return entities.indexOf(entity);
+    } catch (Exception e) {
+      return -1;
+    }
   }
 
   @Override
@@ -66,7 +74,11 @@ public abstract class AbstractFragmentPagerAdapter<T extends HasName, F extends 
 
   @Override
   public long getItemId(int position) {
-    return entities.get(position).getId();
+    try {
+      return entities.get(position).getId();
+    } catch (Exception e) {
+      return -1;
+    }
   }
 
   public int getCurrentPosition() {
