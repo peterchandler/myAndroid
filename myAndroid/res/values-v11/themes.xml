@@ -23,6 +23,7 @@
     <item name="iconRefresh">@drawable/navigation_refresh_holo_dark</item>
     <item name="iconSettings">@drawable/action_settings_holo_dark</item>
     <item name="iconSortBySize">@drawable/collections_sort_by_size_holo_dark</item>
+    <item name="iconSortBySizeBody">@drawable/collections_sort_by_size_holo_dark</item>
     
     <!-- Chart colors -->
     <item name="colorChartText">?android:attr/textColorPrimary</item>
@@ -56,6 +57,7 @@
     <item name="iconRefresh">@drawable/navigation_refresh_holo_light</item>
     <item name="iconSettings">@drawable/action_settings_holo_light</item>
     <item name="iconSortBySize">@drawable/collections_sort_by_size_holo_light</item>
+    <item name="iconSortBySizeBody">@drawable/collections_sort_by_size_holo_light</item>
     
     <!-- Chart colors -->
     <item name="colorChartText">?android:attr/textColorPrimary</item>

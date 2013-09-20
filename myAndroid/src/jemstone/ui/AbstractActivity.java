@@ -181,7 +181,7 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
       int color = a.getColor(0, defaultColor);
       a.recycle();
       
-      log.info("getThemeColor(%x): returned [color=%x, defaultColor=%x]", attrId, color, defaultColor);
+      log.debug("getThemeColor(%x): returned [color=%x, defaultColor=%x]", attrId, color, defaultColor);
       
       return color;
     } catch (Exception e) {
