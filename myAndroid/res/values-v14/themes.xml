@@ -13,6 +13,7 @@
     <item name="iconUndo">@drawable/content_undo_holo_dark</item>
     <item name="iconRedo">@drawable/content_redo_holo_dark</item>
     <item name="iconAdd">@drawable/content_new_holo_dark</item>
+    <item name="iconAddInverse">@drawable/content_new_holo_light</item>
     <item name="iconDelete">@drawable/content_discard_holo_dark</item>
     <item name="iconCancel">@drawable/navigation_cancel_holo_dark</item>
     <item name="iconCancelInverse">@drawable/navigation_cancel_holo_light</item>
@@ -23,7 +24,7 @@
     <item name="iconRefresh">@drawable/navigation_refresh_holo_dark</item>
     <item name="iconSettings">@drawable/action_settings_holo_dark</item>
     <item name="iconSortBySize">@drawable/collections_sort_by_size_holo_dark</item>
-    <item name="iconSortBySizeBody">@drawable/collections_sort_by_size_holo_light</item>
+    <item name="iconSortBySizeInverse">@drawable/collections_sort_by_size_holo_light</item>
     
     <!-- Chart colors -->
     <item name="colorChartText">@android:color/primary_text_light</item>
@@ -31,5 +32,6 @@
     <item name="colorChartLine">@color/blueLine</item>
     <item name="colorChartFillStart">#AA8888FF</item>
     <item name="colorChartFillEnd">#AAFFFFFF</item>
+    <item name="colorExpandedGroup">#EEF5FC</item>
   </style>
 </resources>
