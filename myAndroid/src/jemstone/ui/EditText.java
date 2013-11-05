@@ -2,9 +2,10 @@ package jemstone.ui;
 
 import jemstone.util.log.Logger;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 /**
  * Extended {@link android.widget.EditText} control that can notify a specified
@@ -20,16 +21,19 @@ public class EditText extends android.widget.EditText {
   public EditText(Context context) {
     super(context);
     setOnFocusChangeListener(watcher);
+    addTextChangedListener(watcher);
   }
 
   public EditText(Context context, AttributeSet attrs) {
     super(context, attrs);
     setOnFocusChangeListener(watcher);
+    addTextChangedListener(watcher);
   }
 
   public EditText(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
     setOnFocusChangeListener(watcher);
+    addTextChangedListener(watcher);
   }
 
   public void setOnValueChangedListener(OnValueChangedListener onValueChangedListener) {
@@ -41,58 +45,54 @@ public class EditText extends android.widget.EditText {
    * {@link OnValueChangedListener} if present.
    */
   public void getValue() {
-    String newValue = getTextTrimmed();
-    log.trace("getValue: text='%s'", newValue);
-
-    watcher.notifyIfValueChanged(newValue);
+//    log.trace("getValue: newValue='%s'", watcher.newValue);
+//    watcher.notifyIfValueChanged();
   }
 
-  private String getTextTrimmed() {
-    String text = getText().toString();
+  private String getTextTrimmed(Editable s) {
+    String text = s.toString();
     return (text != null) ? text.trim() : "";
-  }
-  
-  @SuppressWarnings("unused")
-  private void showKeyboard() {
-    InputMethodManager inputManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-    inputManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT);
   }
 
   public interface OnValueChangedListener {
     public void onValueChanged(View view, String text);
   }
 
-  private class Watcher implements OnFocusChangeListener {
-    private String oldValue = null;
+  private class Watcher implements OnFocusChangeListener, TextWatcher {
+    private String newValue = null;
 
     @Override
     public void onFocusChange(View view, boolean hasFocus) {
       if (hasFocus) {
-        // Seems that in some circumstances we can get focus more than once without
-        // having lost it!!
-        if (oldValue == null) {
-          oldValue = getTextTrimmed();
-        }
-        
-        // Display soft keyboard
-//        showKeyboard();
-        
-        // Log it
-        log.trace("onFocusChange: Got focus, text='%s'", oldValue);
+        newValue = null;
+        log.trace("onFocusChange: Got focus, oldValue='%s'", getText());
       } else {
-        String newValue = getTextTrimmed();
-        log.trace("onFocusChange: Lost focus, text='%s'", newValue);
-
-        // Notify if required and reset oldValue
-        notifyIfValueChanged(newValue);
+        log.trace("onFocusChange: Lost focus, newValue='%s'", newValue);
+        notifyIfValueChanged();
       }
     }
 
-    public void notifyIfValueChanged(String newValue) {
-      if (onValueChangedListener != null && oldValue != null && !newValue.equals(oldValue)) {
+    public void notifyIfValueChanged() {
+      log.trace("notifyIfValueChanged: newValue='%s'", newValue);
+      
+      if (onValueChangedListener != null && newValue != null) {
         onValueChangedListener.onValueChanged(EditText.this, newValue);
+        newValue = null;
       }
-      oldValue = null;
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+      newValue = getTextTrimmed(s);
+      log.trace("afterTextChanged: newValue='%s'", newValue);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
     }
   }
 }

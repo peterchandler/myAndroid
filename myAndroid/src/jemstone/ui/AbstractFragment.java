@@ -7,6 +7,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -77,8 +80,26 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-  
+    
     log.debug("onActivityCreated: %s", getParameters());
+    clearFocus();
+  }
+
+  @Override
+  public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    if (menuItemHandler != null) {
+      menuItemHandler.onCreateMenu(menu, inflater, getParameters());
+    }
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    log.debug("onOptionsItemSelected: %s", getParameters());
+    clearFocus();
+
+    boolean result = getMenuItemHandler().onMenuItemSelected(item, getParameters(), getActivityManager());
+    refresh();
+    return result;
   }
 
   @Override
@@ -94,6 +115,7 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
   public void onPause() {
     super.onPause();
     log.debug("onPause: %s", getParameters());
+    clearFocus();
   }
 
   @Override
@@ -101,7 +123,15 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     super.onResume();
     log.debug("onResume: %s", getParameters());
     
+    clearFocus();
     refresh();
+  }
+
+  private void clearFocus() {
+    View view = getActivity().getCurrentFocus();
+    if (view != null) {
+      view.clearFocus();
+    }
   }
   
   public void onRefresh() {

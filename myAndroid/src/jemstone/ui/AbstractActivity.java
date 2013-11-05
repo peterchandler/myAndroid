@@ -125,6 +125,12 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
   }
 
   @Override
+  protected void onPause() {
+    super.onPause();
+    log.debug("onPause: %s", getParameters());
+  }
+
+  @Override
   public void onResume() {
     super.onResume();
     log.debug("onResume: %s", getParameters());
