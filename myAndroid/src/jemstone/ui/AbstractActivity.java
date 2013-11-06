@@ -218,6 +218,11 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
     }
   }
   
+  public void show(AbstractDialogFragment<? extends ActivityParameters> dialog) {
+    clearFocus();
+    dialog.show(getSupportFragmentManager());
+  }
+
   public void setShowActionBarDropDown(AbstractActionBarDropdownAdapter<? extends HasName> actionBarAdapter) {
     ActionBar actionBar = getActionBar();
     actionBar.setDisplayShowTitleEnabled(false);
@@ -230,6 +235,13 @@ public class AbstractActivity<AM extends ActivityManager, AP extends ActivityPar
       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));
     } catch (android.content.ActivityNotFoundException anfe) {
       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)));
+    }
+  }
+
+  public void clearFocus() {
+    View view = getCurrentFocus();
+    if (view != null) {
+      view.clearFocus();
     }
   }
 }

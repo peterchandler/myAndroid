@@ -40,20 +40,6 @@ public class EditText extends android.widget.EditText {
     this.onValueChangedListener = onValueChangedListener;
   }
 
-  /**
-   * If the contents of the edit control have changed, then notify the
-   * {@link OnValueChangedListener} if present.
-   */
-  public void getValue() {
-//    log.trace("getValue: newValue='%s'", watcher.newValue);
-//    watcher.notifyIfValueChanged();
-  }
-
-  private String getTextTrimmed(Editable s) {
-    String text = s.toString();
-    return (text != null) ? text.trim() : "";
-  }
-
   public interface OnValueChangedListener {
     public void onValueChanged(View view, String text);
   }
@@ -93,6 +79,11 @@ public class EditText extends android.widget.EditText {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+    }
+
+    private String getTextTrimmed(Editable s) {
+      String text = s.toString();
+      return (text != null) ? text.trim() : "";
     }
   }
 }

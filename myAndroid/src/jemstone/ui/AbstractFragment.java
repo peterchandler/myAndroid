@@ -126,13 +126,6 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     clearFocus();
     refresh();
   }
-
-  private void clearFocus() {
-    View view = getActivity().getCurrentFocus();
-    if (view != null) {
-      view.clearFocus();
-    }
-  }
   
   public void onRefresh() {
     log.debug("onRefresh:%s", getParameters());
@@ -222,5 +215,14 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     if (view != null) {
       view.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
+  }
+  
+  public void show(AbstractDialogFragment<? extends ActivityParameters> dialog) {
+    clearFocus();
+    dialog.show(getFragmentManager());
+  }
+
+  private void clearFocus() {
+    getBaseActivity().clearFocus();
   }
 }
