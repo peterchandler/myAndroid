@@ -148,10 +148,7 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
 
   public void finishActivity() {
     // Clear focus
-    final View currentFocus = activity.getCurrentFocus();
-    if (currentFocus != null) {
-      currentFocus.clearFocus();
-    }
+    clearFocus();
     
     // Hide keyboard, and finish the activity
     activity.hideKeyboard();
@@ -222,7 +219,7 @@ public abstract class AbstractFragment<A extends AbstractActivity<AM,AP>,
     dialog.show(getFragmentManager());
   }
 
-  private void clearFocus() {
+  public void clearFocus() {
     getBaseActivity().clearFocus();
   }
 }
