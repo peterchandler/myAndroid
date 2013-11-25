@@ -99,8 +99,11 @@ public class FileManager {
     // Load the file
     Reader reader = new FileReader(file);
     if (reader != null) {
-      loadDao.load(reader);
-      reader.close();
+      try {
+        loadDao.load(reader);
+      } finally {
+        reader.close();
+      }
     }
     
     // Notify listener
