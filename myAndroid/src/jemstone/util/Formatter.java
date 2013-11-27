@@ -1,10 +1,12 @@
 package jemstone.util;
 
+import android.annotation.SuppressLint;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressLint({ "DefaultLocale", "SimpleDateFormat" })
 public class Formatter {
   private static String[] numbersWithSuffix;
 
@@ -100,6 +102,14 @@ public class Formatter {
 
   public String formatDate(Date date) {
     return (date == null) ? "" : dateFormat.format(date);
+  }
+
+  public String formatDay(Date date) {
+    return (date == null) ? "" : String.format("%1$te", date);
+  }
+
+  public String formatMonth(Date date) {
+    return (date == null) ? "" : String.format("%1$tb", date);
   }
 
   public String formatLongDate(Date date) {
