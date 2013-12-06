@@ -18,10 +18,12 @@
     <item name="iconCancel">@drawable/navigation_cancel_holo_dark</item>
     <item name="iconCancelInverse">@drawable/navigation_cancel_holo_dark</item>
     <item name="iconAccept">@drawable/navigation_accept_holo_dark</item>
+    <item name="iconAcceptInverse">@drawable/navigation_accept_holo_dark</item>
     <item name="iconCut">@drawable/content_cut_holo_dark</item>
     <item name="iconCopy">@drawable/content_copy_holo_dark</item>
     <item name="iconPaste">@drawable/content_paste_holo_dark</item>
     <item name="iconRefresh">@drawable/navigation_refresh_holo_dark</item>
+    <item name="iconRefreshInverse">@drawable/navigation_refresh_holo_dark</item>
     <item name="iconSettings">@drawable/action_settings_holo_dark</item>
     <item name="iconSortBySize">@drawable/collections_sort_by_size_holo_dark</item>
     <item name="iconSortBySizeInverse">@drawable/collections_sort_by_size_holo_dark</item>
@@ -54,10 +56,12 @@
     <item name="iconCancel">@drawable/navigation_cancel_holo_light</item>
     <item name="iconCancelInverse">@drawable/navigation_cancel_holo_light</item>
     <item name="iconAccept">@drawable/navigation_accept_holo_light</item>
+    <item name="iconAcceptInverse">@drawable/navigation_accept_holo_light</item>
     <item name="iconCut">@drawable/content_cut_holo_light</item>
     <item name="iconCopy">@drawable/content_copy_holo_light</item>
     <item name="iconPaste">@drawable/content_paste_holo_light</item>
     <item name="iconRefresh">@drawable/navigation_refresh_holo_light</item>
+    <item name="iconRefreshInverse">@drawable/navigation_refresh_holo_light</item>
     <item name="iconSettings">@drawable/action_settings_holo_light</item>
     <item name="iconSortBySize">@drawable/collections_sort_by_size_holo_light</item>
     <item name="iconSortBySizeInverse">@drawable/collections_sort_by_size_holo_light</item>

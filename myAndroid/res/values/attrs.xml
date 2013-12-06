@@ -15,10 +15,12 @@
   <attr name="iconCancel" format="reference"/>
   <attr name="iconCancelInverse" format="reference"/>
   <attr name="iconAccept" format="reference"/>
+  <attr name="iconAcceptInverse" format="reference"/>
   <attr name="iconCut" format="reference"/>
   <attr name="iconCopy" format="reference"/>
   <attr name="iconPaste" format="reference"/>
   <attr name="iconRefresh" format="reference"/>
+  <attr name="iconRefreshInverse" format="reference"/>
   <attr name="iconSettings" format="reference"/>
   <attr name="iconSortBySize" format="reference"/>
   <attr name="iconSortBySizeInverse" format="reference"/>
