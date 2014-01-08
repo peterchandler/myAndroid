@@ -78,7 +78,7 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
           tag = xpp.getName();
           EntityParser p = getParser(tag, parentTag, parser);
           if (p != null) {
-            int id = parseId();
+            long id = parseId();
             try {
               p.create(id);
             } catch (Exception e) {
@@ -123,9 +123,9 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
     return parsers.get(tag);
   }
 
-  protected int parseId() {
+  protected long parseId() {
     String attrib = xpp.getAttributeValue(null, ID);
-    return (attrib != null) ? Integer.parseInt(attrib) : 0;
+    return (attrib != null) ? Long.parseLong(attrib) : 0;
   }
 
   protected Date parseDate(String value) {
@@ -137,7 +137,7 @@ public abstract class AbstractLoadXmlDao implements LoadFileDao {
   }
 
   public interface EntityParser {
-    void create(int id);
+    void create(long id);
     void parse(String tag, String value);
   }
 }
