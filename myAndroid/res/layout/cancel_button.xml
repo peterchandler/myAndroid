@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
   <ImageView
-    android:id="@+id/delete"
+    android:id="@+id/cancel"
     style="@style/DialogButton"
     android:layout_height="fill_parent"
-    android:contentDescription="@string/delete"
+    android:contentDescription="@string/cancel"
     android:scaleType="center"
-    android:src="?iconDeleteInverse"
-    android:visibility="gone" />
+    android:src="?iconCancelInverse"/>
 </merge>
