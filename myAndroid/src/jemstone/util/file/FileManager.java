@@ -86,13 +86,13 @@ public class FileManager {
   }
 
   public synchronized void load() throws DaoException, IOException {
-    // Notify listener
-    if (listener != null) {
-      listener.onPreLoad();
-    }
-    
     File file = getFile();
 
+    // Notify listener
+    if (listener != null) {
+      listener.onPreLoad(file);
+    }
+    
     log.info("Load started: %s", file);
     Timer timer = new Timer();
     
@@ -116,15 +116,16 @@ public class FileManager {
 
   @SuppressWarnings("unchecked")
   public synchronized void save(EntityManager manager) throws DaoException, IOException {
+    File file = getFile();
+
     // Notify listener
     if (listener != null) {
-      listener.onPreSave();
+      listener.onPreSave(file);
     }
     
     log.info("Save started");
     
     // Save to file
-    File file = getFile();
     try {
       Timer timer = new Timer();
 
@@ -181,11 +182,11 @@ public class FileManager {
    * Events fired by the FileManager
    */
   public interface Listener {
-    public void onPreLoad();
+    public void onPreLoad(File file);
 
     public void onPostLoad();
 
-    public void onPreSave();
+    public void onPreSave(File file);
     
     public void onPostSave();
   }
