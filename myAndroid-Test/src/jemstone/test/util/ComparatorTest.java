@@ -23,7 +23,7 @@ public class ComparatorTest extends AndroidTestCase {
   }
 
   public void testList() throws CompareException, AssertionError {
-    ListComparator<Category> comparator = new ListComparator<Category>("Categories", new CategoryComparator());
+    ListComparator<Category> comparator = new ListComparator<Category>(true, "Categories", new CategoryComparator());
 
     List<Category> list1 = new ArrayList<Category>();
     list1.add(new Category("Food"));
@@ -55,7 +55,11 @@ public class ComparatorTest extends AndroidTestCase {
   }
   
   private class CategoryComparator extends EntityComparator<Category> {
-    @Override
+    public CategoryComparator() {
+		super(true);
+	}
+
+	@Override
     public boolean equals(Category cat1, Category cat2) throws CompareException {
       checkNull("Category", cat1, cat2);
       return equals("name", cat1.name, cat2.name);

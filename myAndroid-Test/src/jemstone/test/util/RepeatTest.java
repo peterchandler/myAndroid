@@ -747,7 +747,7 @@ public class RepeatTest extends AndroidTestCase {
     Repeat repeat2 = repeat1.clone();
 
     assertNotSame(repeat1, repeat2);
-    new RepeatComparator().assertEquals(repeat1, repeat2);
+    new RepeatComparator(true).assertEquals(repeat1, repeat2);
   }
 
   public void testClone2() throws CompareException, AssertionError {
@@ -755,7 +755,7 @@ public class RepeatTest extends AndroidTestCase {
     Repeat repeat2 = repeat1.clone();
 
     assertNotSame(repeat1, repeat2);
-    new RepeatComparator().assertEquals(repeat1, repeat2);
+    new RepeatComparator(true).assertEquals(repeat1, repeat2);
   }
 
   public void testClone3() throws CompareException, AssertionError {
@@ -763,7 +763,7 @@ public class RepeatTest extends AndroidTestCase {
     Repeat repeat2 = repeat1.clone();
 
     assertNotSame(repeat1, repeat2);
-    new RepeatComparator().assertEquals(repeat1, repeat2);
+    new RepeatComparator(true).assertEquals(repeat1, repeat2);
   }
 
   public void testClone4() throws CompareException, AssertionError {
@@ -771,9 +771,9 @@ public class RepeatTest extends AndroidTestCase {
     Repeat repeat2 = repeat1.clone();
 
     assertNotSame(repeat1, repeat2);
-    new RepeatComparator().assertEquals(repeat1, repeat2);
+    new RepeatComparator(true).assertEquals(repeat1, repeat2);
 
     repeat2.setDaysOfWeek(Calendar.THURSDAY);
-    new RepeatComparator().assertNotEquals(repeat1, repeat2);
+    new RepeatComparator(true).assertNotEquals(repeat1, repeat2);
   }
 }
