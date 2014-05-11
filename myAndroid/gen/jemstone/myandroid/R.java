@@ -298,6 +298,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int next=0x7f070022;
         public static int ok=0x7f07000c;
         public static int paste=0x7f070015;
+        public static int period=0x7f070023;
         public static int redo=0x7f070017;
         public static int refresh=0x7f070021;
         public static int repeat=0x7f07001a;

@@ -1,5 +1,5 @@
 <resources>
-  <string name="copyright">Copyright \u00A9 2012-2013</string>
+  <string name="copyright">Copyright \u00A9 2012&#8211;2014</string>
   <string name="jemstone">Jemstone Consulting Ltd</string>
   <string name="link_to_google_play">Rate on Google Play</string>
   <string name="titleVersionString">Version %s</string>
@@ -34,6 +34,7 @@
   <string name="configure">Configure</string>
   <string name="refresh">Refresh</string>
   <string name="next">Next</string>
+  <string name="period">Period</string>
   
   <string-array name="repeat_frequency">
     <item>Once</item>
