@@ -2,15 +2,16 @@ package jemstone.ui;
 
 import java.util.Calendar;
 import java.util.Date;
-
 import jemstone.myandroid.R;
 import jemstone.util.DateUtil;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 
+@SuppressLint("ValidFragment")
 public class DateEditDialog extends AbstractDialogFragment<ActivityParameters>
                          implements DatePicker.OnDateChangedListener 
 {
